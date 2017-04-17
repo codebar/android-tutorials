@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon'/ >
+    <!-- IE 6, 7, 8 and 9 -->
+    <!--[if IE]>
+    <script type="text/javascript" src="http://stuk.github.io/jszip-utils/dist/jszip-utils-ie.js"></script>
+    <![endif]-->
+  </head>
+  <body >
+    <div class="container">
+      <div id="content">
+        <div>
+  <article role="article">
+    
+    <header>
+      <h1 class="entry-title">Android Dev - Layouts</h1>
+    </header>
+    
+    <p>(this is a mini tutorial that can be completed at any time)</p>
+
+<h2 id="1-intro">1. Intro</h2>
+
+<p>The aim of this worksheet is to demonstrate how to position elements by building an “about” page. We will also look at how we can apply the same style to elements that are very similar.</p>
+
+<p><img src="https://i.imgur.com/uiBO8Ial.png]" alt="" /></p>
+<blockquote>
+  <p>here’s how my about page looked at the end</p>
+</blockquote>
+
+<h2 id="2-new-layout-resource">2. New layout resource</h2>
+
+<p>First, we need to create a new layout file. To do this, right click on your layout folder (inside resources) in Android Studio. You want to select a <code class="highlighter-rouge">layout resource file</code> . You should get a dialog popup like so:</p>
+
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487608985363_Screen+Shot+2017-02-20+at+16.42.54.png" alt="" /></p>
+
+<blockquote>
+  <p>here you want to write the name of the file at the top, and then press ok! We don’t need to worry about the any of the available qualifiers!</p>
+</blockquote>
+
+<h2 id="4-building-the-layout">4. Building the layout</h2>
+
+<p>Next, we need to then start building the your profile card! Ideally, you need to put up between three and five pieces of information, such as your twitter account, linked in profile, public website!</p>
+
+<p>https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487623536028_Screen+Shot+2017-02-20+at+20.45.15.png</p>
+
+<p>Experiment with the following attributes to position elements exactly where you want them:</p>
+
+<ul>
+  <li>align</li>
+  <li>margin</li>
+  <li>padding</li>
+</ul>
+
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487764459586_test.png" alt="" /> Try to work through positioning an element once on your own, then ask your coach for some feedback on how they might’ve positioned it. Learn from that and then work on the next element!</p>
+
+<h2 id="5-styles">5. Styles</h2>
+
+<p>After filling in a couple of pieces of information, you’ve probably started copying and pasting whole sections of layout code. Wouldn’t it be nicer if there was a better way to do this?</p>
+
+<p>Fortunately, in Android we can use apply a style. A style will apply a bunch of attributes that you specify to any element you want. For example, our text is the same text size, and colour. We can specify those in a style!</p>
+
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487621977280_Screen+Shot+2017-02-20+at+20.14.27.png" alt="" /></p>
+
+<blockquote>
+  <p>the code before</p>
+</blockquote>
+
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487624799339_Screen+Shot+2017-02-20+at+21.06.25.png" alt="" /></p>
+
+<blockquote>
+  <p>my style 🎉</p>
+</blockquote>
+
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487621986762_Screen+Shot+2017-02-20+at+20.18.26.png" alt="" /></p>
+
+<blockquote>
+  <p>the code after!</p>
+</blockquote>
+
+<h2 id="7-finishing">7. Finishing</h2>
+
+<p>Make sure you test out your design on different phones, and different orientations! How will you make it work on a really tiny device and a really big device?</p>
+
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487764549342_test.png" alt="" /> Speak to your coach if you’d like advice on how we handle supporting many different device sizes. For more information take a look at https://developer.android.com/guide/practices/screens_support.html</p>
+
+    <footer>
+        <a href='http://tutorials.codebar.io/'>Back to tutorials</a>
+        <a href='http://codebar.io/'>codebar mainpage</a>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+<script>
+  var Files = {
+    all : 
+  }
+</script>
+
+      </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>
