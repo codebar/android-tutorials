@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon'/ >
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/material-icons.css">
+    <link rel="stylesheet" href="assets/dark.css">
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
     <!-- IE 6, 7, 8 and 9 -->
     <!--[if IE]>
     <script type="text/javascript" src="http://stuk.github.io/jszip-utils/dist/jszip-utils-ie.js"></script>
@@ -86,8 +89,8 @@
 
 <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487764549342_test.png" alt="" /> Speak to your coach if you’d like advice on how we handle supporting many different device sizes. For more information take a look at https://developer.android.com/guide/practices/screens_support.html</p>
 
-    <footer>
-        <a href='http://tutorials.codebar.io/'>Back to tutorials</a>
+    <footer class="text-center">
+        <hr>
         <a href='http://codebar.io/'>codebar mainpage</a>
     </footer>
   </article>
@@ -108,4 +111,11 @@
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
+
+  <script>
+    function goSomewhere(place){
+      console.log('going to ' + place);
+      window.location.pathname = place;
+    }
+  </script>
 </html>

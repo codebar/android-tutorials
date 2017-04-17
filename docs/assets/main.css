@@ -1,0 +1,31 @@
+body{
+  padding:20px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size:72px;
+}
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size:32px;
+}
+
+.emoji-title{
+  font-size:72px;
+  margin-top: 22px;
+  color:#A4C639;
+}
+
+
+pre{
+  background-color: #282c34;
+  padding:15px;
+}

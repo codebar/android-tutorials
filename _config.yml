@@ -26,6 +26,8 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+
 gems:
   - jekyll-feed
 exclude:

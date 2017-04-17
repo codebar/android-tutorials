@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon'/ >
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/material-icons.css">
+    <link rel="stylesheet" href="assets/dark.css">
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
     <!-- IE 6, 7, 8 and 9 -->
     <!--[if IE]>
     <script type="text/javascript" src="http://stuk.github.io/jszip-utils/dist/jszip-utils-ie.js"></script>
@@ -29,8 +32,8 @@
 
 <p><strong>Udacity</strong> also have a super course available which women can apply for a scholarship here https://www.udacity.com/google-scholarships</p>
 
-    <footer>
-        <a href='http://tutorials.codebar.io/'>Back to tutorials</a>
+    <footer class="text-center">
+        <hr>
         <a href='http://codebar.io/'>codebar mainpage</a>
     </footer>
   </article>
@@ -51,4 +54,11 @@
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
+
+  <script>
+    function goSomewhere(place){
+      console.log('going to ' + place);
+      window.location.pathname = place;
+    }
+  </script>
 </html>

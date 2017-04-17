@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon'/ >
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/material-icons.css">
+    <link rel="stylesheet" href="assets/dark.css">
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
     <!-- IE 6, 7, 8 and 9 -->
     <!--[if IE]>
     <script type="text/javascript" src="http://stuk.github.io/jszip-utils/dist/jszip-utils-ie.js"></script>
@@ -66,7 +69,7 @@ arriving at the workshop!)</p>
 
 <p>One of the most important features of our cookie clicker will be our cookie - we can create an <code class="highlighter-rouge">&lt;ImageView&gt;</code>, you will need to provide a <code class="highlighter-rouge">height</code> and a <code class="highlighter-rouge">width</code>. We also need to provide it an id so we can connect to it later.</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;ImageView</span>
+<div class="language-xml highlighter-rouge"><pre><code class="highlight"><span class="nt">&lt;ImageView</span>
         <span class="na">android:id=</span><span class="s">"@+id/imgCookie"</span>
         <span class="na">android:layout_width=</span><span class="s">"256dp"</span>
         <span class="na">android:layout_height=</span><span class="s">"256dp"</span><span class="nt">/&gt;</span>
@@ -109,8 +112,8 @@ arriving at the workshop!)</p>
 
 <p>Inside the <code class="highlighter-rouge">onCreate</code> method, below where it sets the layout to the xml file we just finished designing. We want to create a variable called imgCookie and findViewById to hook them up. This is similar to how we use jQuery in JavaScript to hook up with a HTML element</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><pre><code class="highlight"><span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
         <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
 
@@ -135,10 +138,10 @@ arriving at the workshop!)</p>
 
 <p>When we click on the image, we need to increment the score by 1. For now, we can use our toast to see how much our current score is:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">int</span> <span class="n">currentScore</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><pre><code class="highlight"><span class="kd">private</span> <span class="kt">int</span> <span class="n">currentScore</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
         <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
 
@@ -146,7 +149,7 @@ arriving at the workshop!)</p>
 
         <span class="n">imgCookie</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">new</span> <span class="n">View</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="n">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">currentScore</span> <span class="o">++;</span>
                 <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="s">"your score is "</span> <span class="o">+</span> <span class="n">currentScore</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
             <span class="o">}</span>
@@ -189,8 +192,8 @@ arriving at the workshop!)</p>
 
 <p>Google also has their own tutorial series at https://developer.android.com/training/basics/firstapp/index.html, which touches on some of the details and complexities of Android app development - saving data, sharing things with other apps, getting location data and other things you may want a more complex app to be able to do.</p>
 
-    <footer>
-        <a href='http://tutorials.codebar.io/'>Back to tutorials</a>
+    <footer class="text-center">
+        <hr>
         <a href='http://codebar.io/'>codebar mainpage</a>
     </footer>
   </article>
@@ -211,4 +214,11 @@ arriving at the workshop!)</p>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
+
+  <script>
+    function goSomewhere(place){
+      console.log('going to ' + place);
+      window.location.pathname = place;
+    }
+  </script>
 </html>
