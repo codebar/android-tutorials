@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div>
+  <article role="article">
+    {% if page.title %}
+    <header>
+      <h1 class="entry-title">{{ page.title }}</h1>
+    </header>
+    {% endif %}
+    {{ content }}
+    <footer>
+        <a href='http://tutorials.codebar.io/'>Back to tutorials</a>
+        <a href='http://codebar.io/'>codebar mainpage</a>
+    </footer>
+  </article>
+</div>
+
+
+
+
+{% if page.files %}
+{% assign pageurl = page.url | split: '/' | pop: | join: '/' %}
+{% capture files %}[{% for file in page.files %}
+    "{{ pageurl }}/{{ file }}"{% if forloop.last %}{% else %},{% endif %}{% endfor %}
+  ]{% endcapture %}
+{% endif %}
+
+<script>
+  var Files = {
+    all : {{ files }}
+  }
+</script>
