@@ -29,3 +29,10 @@ pre{
   background-color: #282c34;
   padding:15px;
 }
+
+a .card {
+  color: black;
+}
+a:hover .card {
+  text-decoration: none;
+}

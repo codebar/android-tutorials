@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Android Dev - Layouts
-permalink: layouts.html
 ---
 
 (this is a mini tutorial that can be completed at any time)

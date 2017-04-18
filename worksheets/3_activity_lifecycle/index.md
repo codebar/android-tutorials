@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Android Dev - Activity Lifecycle
-permalink: activity_lifecycle.html
 ---
 
 (this is a mini tutorial that can be completed at any time)

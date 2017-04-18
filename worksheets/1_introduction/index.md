@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Introduction to Android Development
-permalink: introduction.html
 ---
 
 ## 1. Intro
