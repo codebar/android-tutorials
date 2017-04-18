@@ -14,11 +14,11 @@ arriving at the workshop!)
 
 Feel free to chose a different topic other than cookies, we really like the popular pokémon Goomy Clicker - http://joezeng.github.io/goomyclicker what things do you like?
 
-![Imgur](http://i.imgur.com/ssQF3jO.png)
+![The completed application](images/1_completed.png)
 
 ## 2. Create New Project
 
-![Imgur](http://i.imgur.com/er2g9BZ.png)
+![Creating a new project in Android Studio](images/2_new_project.png)
 
 > Set the name of your app, this is what people will see when they install your app. The company name, and the resulting package name, is how Google keeps track of apps - it needs to be unique, so maybe use something with your name?
 
@@ -26,7 +26,7 @@ Next, we set the SDK level to `14` - It'll give you a helpful guide for how many
 
 Finally, we want to create an `Empty Activity`
 
-![Imgur](http://i.imgur.com/PzqiEXC.png)
+![Creating a new activity in Android Studio](images/3_new_activity.png)
 
 > We are going to keep the default of MainActivity.java and activity_main.xml :smile:
 
@@ -48,9 +48,9 @@ One of the most important features of our cookie clicker will be our cookie - we
 
 ```xml
 <ImageView
-        android:id="@+id/imgCookie"
-        android:layout_width="256dp"
-        android:layout_height="256dp"/>
+    android:id="@+id/imgCookie"
+    android:layout_width="256dp"
+    android:layout_height="256dp"/>
 ```
 
 > id’s need to start with @+id/ - the plus symbol means it assigns the variable name to the current ImageView
@@ -61,7 +61,7 @@ Next, we want to save the following cookie image into our project. You can eithe
 
 Because android has different density devices, we usually need to provide different resolution images for all those different devices. If we only provide it in one folder, Android will scale the image for other devices, but this might cause make the image look bad!
 
-![Imgur](http://i.imgur.com/dIMVebY.png)
+![Where to place the cookie image file](images/4_cookie_finder.png)
 
 If we want to then use that image in our Android app we can use an attribute `android:src="@drawable/cookie"` - autocomplete will be your friend here!
 
@@ -71,7 +71,7 @@ Next, we want to look at having a TextView for to keep track of how many cookies
 
 Another neat feature of using a RelativeLayout is how we can position things **in relation** to other things. So we can say that this TextView should `appearAbove` the image's id. In order for this to work, the TextView needs to know where the ImageView is, so the code for the TextView needs to go below the ImageView.
 
-![Imgur](http://i.imgur.com/Dq3RsRU.png)
+![The cookie clicker layout file in Android Studio](images/5_android_studio_layout.png)
 
 > this is how our layout code finally looked :smile:
 
@@ -87,21 +87,21 @@ Inside the `onCreate` method, below where it sets the layout to the xml file we 
 
 ```java
 @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        ImageView imgCookie = (ImageView)findViewById(R.id.imgCookie);
-    }
+    ImageView imgCookie = (ImageView)findViewById(R.id.imgCookie);
+}
 ```
 
 After, we can set an onClickListener, which is again similar to the JavaScript element.click() method. The trick with Android Studio is to let it write as much code as possible, it has an extremely powerful auto completer! When you start typing onClickListener, you should see a suggestion with curly brackets on it. If you press tab at this point, it'll auto complete the entire code that you need!
 
-![Imgur](http://i.imgur.com/IhKTxKv.png)
+![Autocomplete in Android Studio](images/6_autocomplete.png)
 
-Inside our method we're going to put a Toast. These are those little messages at the bottom of the phone that show for a short period of time. They're really good
+Inside our method we're going to put a Toast. These are those little messages at the bottom of the phone that show for a short period of time. They're really good!
 
-![Imgur](http://i.imgur.com/K5q1Ftr.png)
+![Our Android toast code](images/7_toast_code.png)
 
 Run your app now, and see what happens when you tap on the cookie!
 
@@ -114,22 +114,22 @@ When we click on the image, we need to increment the score by 1. For now, we can
 ```java
 private int currentScore = 0;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        ImageView imgCookie = (ImageView)findViewById(R.id.imgCookie);
+    ImageView imgCookie = (ImageView)findViewById(R.id.imgCookie);
 
-        imgCookie.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                currentScore ++;
-                Toast.makeText(MainActivity.this, "your score is " + currentScore, Toast.LENGTH_SHORT).show();
-            }
-        });
+    imgCookie.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            currentScore ++;
+            Toast.makeText(MainActivity.this, "your score is " + currentScore, Toast.LENGTH_SHORT).show();
+        }
+    });
 
-    }
+}
 ```
 
 Toast messages are super useful for whilst we’re building the app, but people playing probably don’t want that. Let’s go about hooking it up to our TextView.
@@ -138,9 +138,7 @@ Firstly, we need to make a variable called lblTotal and set it to our TextView j
 
 Next, inside our imgCookie onClick, we can do lblTotal.setText to set our current counter. However we can’t do this directly; our currentScore is an int (number), and the lblTotal can only display a String (text). So we need to do String.valueOf to convert it!
 
-![Imgur](http://i.imgur.com/qCoy89R.png)
-
-> final code
+![Our final code](images/8_final_code.png)
 
 ## 6. More Advanced Game Logic
 
