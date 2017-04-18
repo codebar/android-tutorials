@@ -15,7 +15,7 @@ This is the home for the codebar android tutorials! These are designed to be use
     <div class="card-block">
       <h4 class="card-title">Getting Setup</h4>
       <p>All the things you need to do <em>before</em> attending a codebar android workshop</p>
-      <a href="{{ site.baseurl }}/worksheets/0_resources.html" class="btn btn-primary">Get Set Up</a>
+      <a href="{{ site.baseurl }}/worksheets/0-resources.html" class="btn btn-primary">Get Set Up</a>
     </div>
   </div>
 </div>
@@ -34,7 +34,7 @@ This is the home for the codebar android tutorials! These are designed to be use
       <div class="card-block">
         <h4 class="card-title">Introduction</h4>
         <p>The best starting place to learn Android by building a cookie clicker</p>
-        <a href="{{ site.baseurl }}/worksheets/1_introduction" class="btn btn-primary">Read Tutorial</a>
+        <a href="{{ site.baseurl }}/worksheets/1-introduction/" class="btn btn-primary">Read Tutorial</a>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@ This is the home for the codebar android tutorials! These are designed to be use
       <div class="card-block">
         <h4 class="card-title">Layouts</h4>
         <p>Go further into how the layout system works in Android</p>
-        <a href="{{ site.baseurl }}/worksheets/2_layouts" class="btn btn-primary">Read Tutorial</a>
+        <a href="{{ site.baseurl }}/worksheets/2-layouts/" class="btn btn-primary">Read Tutorial</a>
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@ This is the home for the codebar android tutorials! These are designed to be use
       <div class="card-block">
         <h4 class="card-title">Activity Lifecycle</h4>
         <p>Learn how the android activity lifecycle works</p>
-        <a href="{{ site.baseurl }}/worksheets/3_activity_lifecycle" class="btn btn-primary">Read Tutorial</a>
+        <a href="{{ site.baseurl }}/worksheets/3-activity-lifecycle/" class="btn btn-primary">Read Tutorial</a>
       </div>
     </div>
   </div>
