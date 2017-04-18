@@ -1,11 +1,7 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+title: Codebar Android Workshop Resources
 layout: page
 ---
-
-# Welcome
 
 This is the home for the codebar android tutorials! These are designed to be used at the very special codebar Android workshops only. If you're super lucky there may be a coach at regular codebar who can help you through a tutorial, but we can't promise that!
 

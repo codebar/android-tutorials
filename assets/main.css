@@ -1,5 +1,5 @@
-body{
-  padding:20px;
+body {
+  padding: 20px;
 }
 
 img {
@@ -10,29 +10,22 @@ img {
 }
 
 h1 {
-  font-size:72px;
+  font-size: 3.5rem;
 }
+
 h2 {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size:32px;
+  font-size: 2rem;
 }
 
-.emoji-title{
-  font-size:72px;
+.emoji-title {
+  font-size: 72px;
   margin-top: 22px;
-  color:#A4C639;
+  color: #A4C639;
 }
 
-
-pre{
+pre {
   background-color: #282c34;
-  padding:15px;
-}
-
-a .card {
-  color: black;
-}
-a:hover .card {
-  text-decoration: none;
+  padding: 15px;
 }
