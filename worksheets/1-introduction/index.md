@@ -5,12 +5,9 @@ title: Introduction to Android Development
 
 ## 1. Intro
 
-The aim of this worksheet is to create a cookie clicker game (http://orteil.dashnet.org/cookieclicker/), with a cookie image that can be tapped to increase the score.
+The aim of this worksheet is to create a [cookie clicker game](http://orteil.dashnet.org/cookieclicker/), with a cookie image that can be tapped to increase the score.
 
-To follow this tutorial, you will need to [install Android
-Studio](https://developer.android.com/studio/index.html) (please
-note: this is a large file, so our advice is to download and install it before
-arriving at the workshop!)
+To follow this tutorial, you will need to [get set up for Android development]({{ site.baseurl }}/setup). Please note, this involves donwloading a large file, so our advice is to run through and install everything before arriving at the workshop. If you have problems, just get as far as you can and a coach can help you finish it off.
 
 Feel free to chose a different topic other than cookies, we really like the popular pokémon Goomy Clicker - http://joezeng.github.io/goomyclicker what things do you like?
 
