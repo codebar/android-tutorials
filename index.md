@@ -68,4 +68,20 @@ This is the home for the codebar android tutorials! These are designed to be use
       </div>
     </div>
   </div>
+
+  <div class="col-lg-4 col-md-6 col-12 text-center" style="padding:5px;">
+    <div class="card">
+      <h2 class="emoji-title text-center">
+        <i class="material-icons">place</i>
+        <i class="material-icons">near_me</i>
+        <i class="material-icons">my_location</i>
+      </h2>
+      <div class="card-block">
+        <h4 class="card-title">Google Maps</h4>
+        <p>Learn how to put Google Maps into your own app!</p>
+        <a href="{{ site.baseurl }}/worksheets/4-maps/" class="btn btn-primary">Read Tutorial</a>
+      </div>
+    </div>
+  </div>
+
 </div>
