@@ -150,11 +150,3 @@ If you want to take your cookie game clicker onwards, maybe consider:
 
 * Things people can spend their cookies on to get cookies for them without clicking, such as using timers
 * Use something like firebase to have high scores, or allow people to sign in and save their cookies
-
-## 8. More Information
-
-Amal has written a more advanced android tutorial located at https://github.com/K4KYA/MakersHelloAndroid/tree/codebar if you want to take Android even further :)
-
-If you’d like to go even further, the Big Nerd Ranch have a really very good book to pick up Android (they have an iOS book too) - https://www.bignerdranch.com/we-write/
-
-Google also has their own tutorial series at https://developer.android.com/training/basics/firstapp/index.html, which touches on some of the details and complexities of Android app development - saving data, sharing things with other apps, getting location data and other things you may want a more complex app to be able to do.
