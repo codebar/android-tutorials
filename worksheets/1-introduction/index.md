@@ -44,6 +44,16 @@ We're going to be dealing with the XML directly in this tutorial, so find the 't
 
 Now you should see some code that looks familiar-ish! Android layouts using XML, which is very very similar to HTML. You should see already we have a `<RelativeLayout>` and a `<TextView>` tag, with some attributes already there. The thing that looks weird is that all the attributes currently are prefixed with the word `android`.
 
+At the moment Android Studio creates a constraint layout by default. These are bit more complicated to start with. So let's delete everything that's there and put this instead:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+</RelativeLayout>
+```
+
 One of the most important features of our cookie clicker will be our cookie - we can create an `<ImageView>`, you will need to provide a `height` and a `width`. We also need to provide it an id so we can connect to it later.
 
 ```xml
