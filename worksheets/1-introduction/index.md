@@ -138,7 +138,7 @@ Firstly, we need to make a variable called lblTotal and set it to our TextView j
 
 Next, inside our imgCookie onClick, we can do lblTotal.setText to set our current counter. However we can’t do this directly; our currentScore is an int (number), and the lblTotal can only display a String (text). So we need to do String.valueOf to convert it!
 
-![Our final code](images/8_final_code.png)
+![Our final code](images/8_final_code_alt.png)
 
 ## 6. More Advanced Game Logic
 
