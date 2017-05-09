@@ -42,6 +42,21 @@ This is the home for the codebar android tutorials! These are designed to be use
   <div class="col-lg-4 col-md-6 col-12 text-center" style="padding:5px;">
     <div class="card">
       <h2 class="emoji-title text-center">
+        <i class="material-icons">personal_video</i>
+        <i class="material-icons">touch_app</i>
+        <i class="material-icons">phone_android</i>
+      </h2>
+      <div class="card-block">
+        <h4 class="card-title">Espresso UI Testing</h4>
+        <p>Automatically test your cookie clicker app using Espresso</p>
+        <a href="{{ site.baseurl }}/worksheets/espresso-testing/" class="btn btn-primary">Read Tutorial</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 col-12 text-center" style="padding:5px;">
+    <div class="card">
+      <h2 class="emoji-title text-center">
         <i class="material-icons">view_module</i>
         <i class="material-icons">person</i>
         <i class="material-icons">picture_in_picture_alt</i>
