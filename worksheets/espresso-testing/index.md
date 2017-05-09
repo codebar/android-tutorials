@@ -6,14 +6,14 @@ title: Espresso UI Testing
 ## Introduction
 This tutorial follows on from the [first one where you built a cookie clicker]({{ site.baseurl }}/worksheets/1-introduction/). If you worked on that tutorial already, follow along using the code you wrote previously.
 
-If you didn't work on that tutorial, or you don't have the code anymore, you can download a completed project to follow along with [here](downloads/cookie-clicker.zip). Download the file, unzip it and then open it with Android Studio using the *Open an exisiting Android Studio project* button on the welcome screen.
+If you didn't work on that tutorial, or you don't have the code anymore, you can download a completed project to follow along with [here](downloads/cookie-clicker.zip). Download the file, unzip it and then open it with Android Studio using the *Open an existing Android Studio project* button on the welcome screen.
 
 ## What is UI testing?
-To make sure you software works properly you need to test it whenever you make a change that you want to release to your users. For something like an app you need to go through all the features of the app and make sure that nothing is broken. For even a small app this is a boring, repetative, and time consuming job. That's exactly the sort of thing which we use computers for! Automated tests are pieces of code which test that your software is working correctly for you.
+To make sure your software works properly you need to test it whenever you make a change that you want to release to your users. For something like an app, you need to go through all the features of the app and make sure that nothing is broken. For even a small app this is a boring, repetitive, and time-consuming job. That's precisely the sort of thing which we use computers for! Automated tests are pieces of code which test that your software is working correctly for you.
 
-We are going to write some UI tests for our cookie clicker app. A UI test is also known as a "funcational test" as it is testing the functionality of the app. There are other types of tests such as "unit tests" which you may have come across in the Javascript, Ruby, or Python tutorials.
+We are going to write some UI tests for our cookie clicker app. A UI test is also known as a "functional test" as it is testing the functionality of the app. There are other types of tests such as "unit tests" which you may have come across in the Javascript, Ruby, or Python tutorials.
 
-A UI test will take a set of instrutions about what to click on and checks that the application responds correctly. They are doing the same as if you were clicking on and testing the app manually, but they can do it much quicker and they don't get bored when they have to do it for the 100th time!
+A UI test will take a set of instructions about what to click on and checks that the application responds correctly. They are doing the same as if you were clicking on and testing the app manually, but they can do it much quicker, and they don't get bored when they have to do it for the 100th time!
 
 First, we need to set up our testing framework.
 
@@ -40,13 +40,13 @@ testCompile 'junit:junit:4.12'
 
 They might already be there depending on how you created your project. If they aren't, add them in. These lines tell the Android build system which version of the Espresso library to use.
 
-Also, make sure that this line in the your `android.defaultConfig` section:
+Also, make sure that this line in your `android.defaultConfig` section:
 
 ```groovy
 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 ```
 
-The complete file should look something like this (don't worry if yours has some extra bits:
+The complete file should look something like this (don't worry if yours has some extra bits):
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -76,10 +76,10 @@ dependencies {
 }
 ```
 
-Press the *Sync Now* button in the bar which has appears along the top. If the bar disappears after syncing then everything is set up correctly! If the bar shows and error message and a *Try Again* button then something has gone wrong. Take a look at the error at the bottom of the screen to see if you can fix it, or ask your coach for help.
+Press the *Sync Now* button in the bar which has appeared along the top. If the bar disappears after syncing, then everything is set up correctly! If the bar shows and error message and a *Try Again* button then something has gone wrong. Take a look at the error at the bottom of the screen to see if you can fix it, or ask your coach for help.
 
 ## Writing our first test
-Now we have everything set up, we can write our first test!
+Now we have everything set up; we can write our first test!
 
 In the project navigator on the left panel of Android Studio, navigate through `app -> java -> <package name> (androidTest)` where `<package name>` is the name you used when you set up the project. Right click on the `(androidTest)` line and choose `New -> Java Class`. In the window which pops up, give it a name of `CookieClickerTest` and then press `OK`. This will create and open a file which looks like this:
 
@@ -96,7 +96,7 @@ Above the `public class` line, add in this line:
 @RunWith(AndroidJUnit4.class)
 ```
 
-Remember to use the autocomplete as much as possible as it will also add in some `import` lines above for you. This line tells Android how to run the tests are are about to write.
+Remember to use the autocomplete as much as possible as it will also add in some `import` lines above for you. This line tells Android how to run the tests we are about to write.
 
 Inside the `class` add the following line:
 
@@ -125,7 +125,7 @@ onView(withId(R.id.lblTotal))
     .check(matches(withText("0")));
 ```
 
-So what are we doing here? The first line (`onView`) is finding the view which matches the requirements we have given to it. We have asked for the view with the id of `lblTotal` using `withId(R.id.lblTotal)`. Remember that this is the id we gave to our `TextView` in the first tutorial in the `activity_main.xml` layout file. The second line is checking that the view matches some condictions. We are checking that the view has the text `"0"` using `withText("0")`.
+So what are we doing here? The first line (`onView`) is finding the view which matches the requirements we have given to it. We have asked for the view with the id of `lblTotal` using `withId(R.id.lblTotal)`. Remember that this is the id we gave to our `TextView` in the first tutorial in the `activity_main.xml` layout file. The second line is checking that the view matches some conditions. We are checking that the view has the text `"0"` using `withText("0")`.
 
 This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Expresso tests work.
 
@@ -160,7 +160,7 @@ public class CookieClickerTest {
 
 ```
 
-Let run our test to make sure the app is working correctly. Press the "play" button to the left of the method and pick your Android device or emulator to run the tests on. This might take a short amount of time but the app should appear and the quickly disappear and Android Studio should show a "Tests passed" message. This might even be too quick to see and that's the advantage of using automated tests! Run it a few time if you want to test it is working all the time.
+Let run our test to make sure the app is working correctly. Press the "play" button to the left of the method and pick your Android device or emulator to run the tests on. This might take a short amount of time but the app should appear and the quickly disappear, and Android Studio should show a "Tests passed" message. This might even be too quick to see, and that's the advantage of using automated tests! Run it a few time if you want to test it is working all the time.
 
 ![Test passing](images/test_passing.png)
 
@@ -209,7 +209,7 @@ Let's run this new test using the play icon next to the `totalIncreasesWhenCooki
 ## Getting a high score!
 We've now tested all the functionality of our app, so now let's do something just for fun: let's make Espresso click loads of time on the cookie and get a high score!
 
-Create a new method called `achieveHighScore`. Copy the code the click test you just wrote and wrap the code to click the cookie image in a for loop from 0 to 100. You then need to check that the total counter has reached `"100"` after the for loop has completed. As your coach if you're not sure how to do this, or take a peak at the code below:
+Create a new method called `achieveHighScore`. Copy the code the click test you just wrote and wrap the code to click the cookie image in a for loop from 0 to 100. You then need to check that the total counter has reached `"100"` after the for loop has completed. Ask your coach, if you're not sure how to do this, or take a peek at the code below:
 
 ```java
 @Test
