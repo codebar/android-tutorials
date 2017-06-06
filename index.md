@@ -15,7 +15,7 @@ This is the home for the codebar android tutorials! These are designed to be use
     <div class="card-block">
       <h4 class="card-title">Getting Setup</h4>
       <p>All the things you need to do <em>before</em> attending a codebar android workshop</p>
-      <a href="{{ site.baseurl }}/worksheets/0-resources.html" class="btn btn-primary">Get Set Up</a>
+      <a href="{{ site.baseurl }}/worksheets/0-setup/" class="btn btn-primary">Get Set Up</a>
     </div>
   </div>
 </div>
