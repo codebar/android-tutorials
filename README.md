@@ -6,7 +6,7 @@ This is a [GitHub Pages](https://pages.github.com/) repo, so you can render the 
 
 1. `bundle install`, which will install Jekyll.
 2. `bundle exec jekyll serve --watch`
-3. go to <http://localhost:4000>
+3. go to <http://localhost:4000/android-tutorials/>
 
 You are now ready to make changes!
 

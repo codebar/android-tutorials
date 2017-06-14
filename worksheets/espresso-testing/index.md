@@ -9,11 +9,11 @@ This tutorial follows on from the [first one where you built a cookie clicker]({
 If you didn't work on that tutorial, or you don't have the code anymore, you can download a completed project to follow along with [here](downloads/cookie-clicker.zip). Download the file, unzip it and then open it with Android Studio using the *Open an existing Android Studio project* button on the welcome screen.
 
 ## What is UI testing?
-To make sure your software works properly you need to test it whenever you make a change that you want to release to your users. For something like an app, you need to go through all the features of the app and make sure that nothing is broken. For even a small app this is a boring, repetitive, and time-consuming job. That's precisely the sort of thing which we use computers for! Automated tests are pieces of code which test that your software is working correctly for you.
+To make sure your software works properly you need to test it whenever you make a change that you want to release to your users. To do this manually for even a small app this is a boring, repetitive, and time-consuming job. That's precisely the sort of thing which we use computers for! Automated tests are pieces of code which test that your software is working correctly. You can set them up to run regularly and on many devices so you don't have to manually test your app every time you make a change. Plus they're usually simple and fun to create!
 
 We are going to write some UI tests for our cookie clicker app. A UI test is also known as a "functional test" as it is testing the functionality of the app. There are other types of tests such as "unit tests" which you may have come across in the Javascript, Ruby, or Python tutorials.
 
-A UI test will take a set of instructions about what to click on and checks that the application responds correctly. They are doing the same as if you were clicking on and testing the app manually, but they can do it much quicker, and they don't get bored when they have to do it for the 100th time!
+A UI test will take a set of instructions about what to click on and checks that the application responds correctly. For example, on a sign in screen you might have an espresso test to check that an error appears if you enter an email address with the wrong format. UI tests are doing the same thing as if you were clicking on and testing the app manually, but they can do it much quicker, and they don't get bored when they have to do it for the 100th time!
 
 First, we need to set up our testing framework.
 
@@ -46,7 +46,7 @@ Also, make sure that this line in your `android.defaultConfig` section:
 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 ```
 
-The complete file should look something like this (don't worry if yours has some extra bits):
+The complete file should look something like this (_Don't copy this as some of your settings will need to be left as they were before. Also, don't worry if yours has some extra bits. Ask your coach if you aren't sure if you have done it correctly_):
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -76,7 +76,7 @@ dependencies {
 }
 ```
 
-Press the *Sync Now* button in the bar which has appeared along the top. If the bar disappears after syncing, then everything is set up correctly! If the bar shows and error message and a *Try Again* button then something has gone wrong. Take a look at the error at the bottom of the screen to see if you can fix it, or ask your coach for help.
+Press the *Sync Now* button in the golden yellow bar which has appeared along the top of the code editor window. If the bar disappears after syncing, then everything is set up correctly! If the bar shows and error message and a *Try Again* button then something has gone wrong. Take a look at the error at the bottom of the screen to see if you can fix it, or ask your coach for help.
 
 ## Writing our first test
 Now we have everything set up; we can write our first test!
@@ -129,7 +129,7 @@ So what are we doing here? The first line (`onView`) is finding the view which m
 
 This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Expresso tests work.
 
-The completed test file should now look like this:
+The completed test file should now look like this (_remember, don't copy this directly as some of your code (such as the package name) need to be different. As your coach if you are not sure_):
 
 ```java
 package io.codebar.cookieclicker;
@@ -206,6 +206,16 @@ public void totalIncreasesWhenCookieClicked() throws Exception {
 
 Let's run this new test using the play icon next to the `totalIncreasesWhenCookieClicked` method line. This test should take just long enough for you to see the 1 on the screen, but it's still so fast that you might blink and miss it!
 
+<div class="aside idea">
+<p class="aside-title">Aside: Breakpoints</p>
+
+<p>If the test is running too fast and you would like to see what is happening clearly, you can try using a _breakpoint_. A breakpoint is a marker which tells the application to pause at a particular line of code so you can see what it is doing. They are very useful for debugging your apps!</p>
+
+<p>To set a breakpoint, click in the margin to the left of the line of code you would like the test to stop on. The first line of the <code>totalIncreasesWhenCookieClicked</code> method is a good place. Then, use the "debug run" button (the one with the bug and play icon to the right of the "play" button you used before).</p>
+
+<p>Now when the test runs, it should stop on that line and show the "debugger" panel at the bottom of the Android Studio window. You can use the buttons in that panel to "step" between lines or to continue running. Hover over the buttons to see a tooltip for what they do and ask your coach if you are unsure.</p>
+</div>
+
 ## Getting a high score!
 We've now tested all the functionality of our app, so now let's do something just for fun: let's make Espresso click loads of time on the cookie and get a high score!
 
@@ -238,3 +248,6 @@ You can read more about Android testing using the links below:
 * [Espresso documentation](https://google.github.io/android-testing-support-library/docs/espresso/index.html).
 * [Android testing documentation](https://developer.android.com/studio/test/index.html).
 * [Using the Espresso test recorder](https://developer.android.com/studio/test/espresso-test-recorder.html).
+
+## Possible extension
+You can try extending your cookie clicker and tests by adding an [`EditText`](https://developer.android.com/reference/android/widget/EditText.html) for you name and a button to submit a high score. Make sure you write some tests for it too!
