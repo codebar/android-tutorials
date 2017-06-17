@@ -127,7 +127,7 @@ onView(withId(R.id.lblTotal))
 
 So what are we doing here? The first line (`onView`) is finding the view which matches the requirements we have given to it. We have asked for the view with the id of `lblTotal` using `withId(R.id.lblTotal)`. Remember that this is the id we gave to our `TextView` in the first tutorial in the `activity_main.xml` layout file. The second line is checking that the view matches some conditions. We are checking that the view has the text `"0"` using `withText("0")`.
 
-This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Expresso tests work.
+This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Espresso tests work.
 
 The completed test file should now look like this (_remember, don't copy this directly as some of your code (such as the package name) need to be different. As your coach if you are not sure_):
 
@@ -160,7 +160,7 @@ public class CookieClickerTest {
 
 ```
 
-Let run our test to make sure the app is working correctly. Press the "play" button to the left of the method and pick your Android device or emulator to run the tests on. This might take a short amount of time but the app should appear and the quickly disappear, and Android Studio should show a "Tests passed" message. This might even be too quick to see, and that's the advantage of using automated tests! Run it a few time if you want to test it is working all the time.
+Let's run our test to make sure the app is working correctly. Press the "play" button to the left of the method and pick your Android device or emulator to run the tests on. This might take a short amount of time but the app should appear and then quickly disappear, and Android Studio should show a "Tests passed" message. This might even be too quick to see, and that's the advantage of using automated tests! Run it a few times if you want to test it is working all the time.
 
 ![Test passing](images/test_passing.png)
 
@@ -217,9 +217,9 @@ Let's run this new test using the play icon next to the `totalIncreasesWhenCooki
 </div>
 
 ## Getting a high score!
-We've now tested all the functionality of our app, so now let's do something just for fun: let's make Espresso click loads of time on the cookie and get a high score!
+We've now tested all the functionality of our app, so now let's do something just for fun: let's make Espresso click loads of times on the cookie and get a high score!
 
-Create a new method called `achieveHighScore`. Copy the code the click test you just wrote and wrap the code to click the cookie image in a for loop from 0 to 100. You then need to check that the total counter has reached `"100"` after the for loop has completed. Ask your coach, if you're not sure how to do this, or take a peek at the code below:
+Create a new method called `achieveHighScore`. Copy the code for the click test you just wrote and wrap the code to click on the cookie image into a for-loop from 0 to 100. You then need to check that the total counter has reached `"100"` after the for-loop has completed. Ask your coach, if you're not sure how to do this, or take a peek at the code below:
 
 ```java
 @Test
