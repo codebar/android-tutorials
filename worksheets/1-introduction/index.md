@@ -62,9 +62,9 @@ One of the most important features of our cookie clicker will be our cookie - we
 
 > id’s need to start with @+id/ - the plus symbol means it assigns the variable name to the current ImageView
 
-In Android we don't use pixels, but instead use `dp` which is a device point. 1 point might be 1 pixel on a really low resolution device, but might be 4 pixels, or even 8 pixels on a newer device. Take a look at this handy guide Android wrote for more information [https://developer.android.com/guide/practices/screens_support.html]() .
+In Android we don't use pixels, but instead use `dp` which is a device point. 1 point might be 1 pixel on a really low resolution device, but might be 4 pixels, or even 8 pixels on a newer device. Take a look at this handy guide Android wrote for more information <https://developer.android.com/guide/practices/screens_support.html> .
 
-Next, we want to save the following cookie image into our project. You can either google for a cookie image that's free to use, or use ours that we found earlier = [http://imgur.com/a/9BXV4]() . You need to save it inside your project folder using Windows Explorer or Mac OSX Finder and navigate to the following -> app -> src -> main -> res . You need to create a folder called `drawable-xhdpi` and place your cookie image in here!
+Next, we want to save the following cookie image into our project. You can either google for a cookie image that's free to use, or use ours that we found earlier = <http://imgur.com/a/9BXV4> . You need to save it inside your project folder using Windows Explorer or Mac OSX Finder and navigate to the following -> app -> src -> main -> res . You need to create a folder called `drawable-xhdpi` and place your cookie image in here!
 
 Because android has different density devices, we usually need to provide different resolution images for all those different devices. If we only provide it in one folder, Android will scale the image for other devices, but this might cause make the image look bad!
 
@@ -82,13 +82,13 @@ Another neat feature of using a RelativeLayout is how we can position things **i
 
 > this is how our layout code finally looked :smile:
 
-Ask your coach what other special things RelativeLayout can do? Do you know any other alternative parent layouts?  Take a look at [https://developer.android.com/guide/topics/ui/layout/relative.html]() for more information.
+Ask your coach what other special things RelativeLayout can do? Do you know any other alternative parent layouts?  Take a look at <https://developer.android.com/guide/topics/ui/layout/relative.html> for more information.
 
 ## 4. Clicking
 
 Next, we want to make it so our cookie actually does something when it's been clicked on!
 
-We want to open our MainActivity.java file and take a look at what's there already. What do you think the `onCreate` method might do? Speak to your coach about what other methods get called in the activity lifecycle. For more information look at [https://developer.android.com/training/basics/activity-lifecycle/index.html]() .
+We want to open our MainActivity.java file and take a look at what's there already. What do you think the `onCreate` method might do? Speak to your coach about what other methods get called in the activity lifecycle. For more information look at <https://developer.android.com/training/basics/activity-lifecycle/index.html> .
 
 Inside the `onCreate` method, below where it sets the layout to the xml file we just finished designing. We want to create a variable called imgCookie and findViewById to hook them up. This is similar to how we use jQuery in JavaScript to hook up with a HTML element
 
