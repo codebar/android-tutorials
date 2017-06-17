@@ -40,7 +40,7 @@ testCompile 'junit:junit:4.12'
 
 They might already be there depending on how you created your project. If they aren't, add them in. These lines tell the Android build system which version of the Espresso library to use.
 
-Also, make sure that this line in your `android.defaultConfig` section:
+Also, make sure that this line is in your `android.defaultConfig` section:
 
 ```groovy
 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -250,4 +250,4 @@ You can read more about Android testing using the links below:
 * [Using the Espresso test recorder](https://developer.android.com/studio/test/espresso-test-recorder.html).
 
 ## Possible extension
-You can try extending your cookie clicker and tests by adding an [`EditText`](https://developer.android.com/reference/android/widget/EditText.html) for you name and a button to submit a high score. Make sure you write some tests for it too!
+You can try extending your cookie clicker and tests by adding an [`EditText`](https://developer.android.com/reference/android/widget/EditText.html) to enter your name, and a button to submit your score. Make sure you write some tests for it too!
