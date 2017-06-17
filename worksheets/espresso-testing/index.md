@@ -127,7 +127,7 @@ onView(withId(R.id.lblTotal))
 
 So what are we doing here? The first line (`onView`) is finding the view which matches the requirements we have given to it. We have asked for the view with the id of `lblTotal` using `withId(R.id.lblTotal)`. Remember that this is the id we gave to our `TextView` in the first tutorial in the `activity_main.xml` layout file. The second line is checking that the view matches some conditions. We are checking that the view has the text `"0"` using `withText("0")`.
 
-This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Expresso tests work.
+This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Espresso tests work.
 
 The completed test file should now look like this (_remember, don't copy this directly as some of your code (such as the package name) need to be different. As your coach if you are not sure_):
 
