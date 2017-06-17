@@ -9,7 +9,7 @@ The aim of this worksheet is to create a [cookie clicker game](http://orteil.das
 
 To follow this tutorial, you will need to [get set up for Android development]({{ site.baseurl }}/setup). Please note, this involves donwloading a large file, so our advice is to run through and install everything before arriving at the workshop. If you have problems, just get as far as you can and a coach can help you finish it off.
 
-Feel free to chose a different topic other than cookies, we really like the popular pokémon Goomy Clicker - [http://joezeng.github.io/goomyclicker]() what things do you like?
+Feel free to chose a different topic other than cookies, we really like the popular pokémon Goomy Clicker - <http://joezeng.github.io/goomyclicker> what things do you like?
 
 ![The completed application](images/1_completed.png)
 
