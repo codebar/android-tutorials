@@ -29,3 +29,22 @@ pre {
   background-color: #282c34;
   padding: 15px;
 }
+
+.aside {
+  position: relative;
+  padding: 16px;
+  margin: 0 32px;
+}
+.idea {
+  background-color: #FFF9C4;
+}
+.aside p.aside-title {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.aside p {
+  font-size: 0.8em;
+}
+.aside p:last-child {
+  margin-bottom: 0;
+}
