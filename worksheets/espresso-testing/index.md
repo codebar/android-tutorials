@@ -22,7 +22,7 @@ We are going to be using a testing framework called [Espresso](https://google.gi
 
 First, we need to make sure the libraries are installed correctly.
 
-In Android Studio, expand the `Gradle Scripts` section at the bottom of the project explorer on the left. Then double click to open the `bundle.gradle (Module: app)` file. Make sure it's the `Module: app` one and not the `Project: CookieClicker` one. This is the file which describes how to build and run our Android application. We need to make sure everything is set up correctly here to let us use Espresso.
+In Android Studio, expand the `Gradle Scripts` section at the bottom of the project explorer on the left. Then double click to open the `build.gradle (Module: app)` file. Make sure it's the `Module: app` one and not the `Project: CookieClicker` one. This is the file which describes how to build and run our Android application. We need to make sure everything is set up correctly here to let us use Espresso.
 
 Inside the `dependencies` section, make sure that these two blocks of code are there:
 
