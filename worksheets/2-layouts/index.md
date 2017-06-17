@@ -26,7 +26,7 @@ First, we need to create a new layout file. To do this, right click on your layo
 
 Next, we need to then start building the your profile card! Ideally, you need to put up between three and five pieces of information, such as your twitter account, linked in profile, public website!
 
-https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487623536028_Screen+Shot+2017-02-20+at+20.45.15.png
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487623536028_Screen+Shot+2017-02-20+at+20.45.15.png)
 
 
 Experiment with the following attributes to position elements exactly where you want them:
