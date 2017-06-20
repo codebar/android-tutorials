@@ -160,7 +160,7 @@ public class CookieClickerTest {
 
 ```
 
-Let run our test to make sure the app is working correctly. Press the "play" button to the left of the method and pick your Android device or emulator to run the tests on. This might take a short amount of time but the app should appear and the quickly disappear, and Android Studio should show a "Tests passed" message. This might even be too quick to see, and that's the advantage of using automated tests! Run it a few time if you want to test it is working all the time.
+Let's run our test to make sure the app is working correctly. Press the "play" button to the left of the method and pick your Android device or emulator to run the tests on. This might take a short amount of time but the app should appear and then quickly disappear, and Android Studio should show a "Tests passed" message. This might even be too quick to see, and that's the advantage of using automated tests! Run it a few times if you want to test it is working all the time.
 
 ![Test passing](images/test_passing.png)
 
@@ -217,9 +217,9 @@ Let's run this new test using the play icon next to the `totalIncreasesWhenCooki
 </div>
 
 ## Getting a high score!
-We've now tested all the functionality of our app, so now let's do something just for fun: let's make Espresso click loads of time on the cookie and get a high score!
+We've now tested all the functionality of our app, so now let's do something just for fun: let's make Espresso click loads of times on the cookie and get a high score!
 
-Create a new method called `achieveHighScore`. Copy the code the click test you just wrote and wrap the code to click the cookie image in a for loop from 0 to 100. You then need to check that the total counter has reached `"100"` after the for loop has completed. Ask your coach, if you're not sure how to do this, or take a peek at the code below:
+Create a new method called `achieveHighScore`. Copy the code for the click test you just wrote and wrap the code to click on the cookie image into a for-loop from 0 to 100. You then need to check that the total counter has reached `"100"` after the for-loop has completed. Ask your coach, if you're not sure how to do this, or take a peek at the code below:
 
 ```java
 @Test
