@@ -1,6 +1,7 @@
 ---
 title: Codebar Android Workshop Resources
 layout: page
+redirect_from: /worksheets/
 ---
 
 This is the home for the codebar android tutorials! These are designed to be used at the very special codebar Android workshops only. If you're super lucky there may be a coach at regular codebar who can help you through a tutorial, but we can't promise that!

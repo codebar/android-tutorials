@@ -26,6 +26,7 @@ highlighter: rouge
 
 gems:
   - jekyll-feed
+  - jekyll-redirect-from
 exclude:
   - Gemfile
   - Gemfile.lock
