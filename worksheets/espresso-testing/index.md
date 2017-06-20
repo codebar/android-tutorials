@@ -40,7 +40,7 @@ testCompile 'junit:junit:4.12'
 
 They might already be there depending on how you created your project. If they aren't, add them in. These lines tell the Android build system which version of the Espresso library to use.
 
-Also, make sure that this line in your `android.defaultConfig` section:
+Also, make sure that this line is in your `android.defaultConfig` section:
 
 ```groovy
 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -127,7 +127,7 @@ onView(withId(R.id.lblTotal))
 
 So what are we doing here? The first line (`onView`) is finding the view which matches the requirements we have given to it. We have asked for the view with the id of `lblTotal` using `withId(R.id.lblTotal)`. Remember that this is the id we gave to our `TextView` in the first tutorial in the `activity_main.xml` layout file. The second line is checking that the view matches some conditions. We are checking that the view has the text `"0"` using `withText("0")`.
 
-This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Expresso tests work.
+This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Espresso tests work.
 
 The completed test file should now look like this (_remember, don't copy this directly as some of your code (such as the package name) need to be different. As your coach if you are not sure_):
 
@@ -250,4 +250,4 @@ You can read more about Android testing using the links below:
 * [Using the Espresso test recorder](https://developer.android.com/studio/test/espresso-test-recorder.html).
 
 ## Possible extension
-You can try extending your cookie clicker and tests by adding an [`EditText`](https://developer.android.com/reference/android/widget/EditText.html) for you name and a button to submit a high score. Make sure you write some tests for it too!
+You can try extending your cookie clicker and tests by adding an [`EditText`](https://developer.android.com/reference/android/widget/EditText.html) to enter your name, and a button to submit your score. Make sure you write some tests for it too!
