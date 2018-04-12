@@ -7,7 +7,7 @@ The aim of this tutorial is to build a dating like app for cookies! We'll have a
 
 ![Imgur](https://i.imgur.com/3u9ATGZ.png)
 
-Before starting, please ensure you have Android Studio installed and setup correctly.
+Before starting, please ensure you have [Android Studio installed and setup correctly]({{ site.baseurl }}/setup)
 
 Also, feel free to pick a different topic than cookies if you prefer. You could pick animals, fruit, or even different little green robots.
 
@@ -38,7 +38,7 @@ Finally you can click finish! This might take some time to actually create every
 
 ## 2 Layout
 
-If you feel confident with layouts already, or would prefer to focus on purely kotlin this time. Copy paste the code in this file <https://gist.github.com/daniellevass/aa6d4042b950aaf6c0f2345530e4baa4> into your layout. This will give you all the layout elements we'll use later!
+*If you feel confident with layouts already, or would prefer to focus on purely kotlin this time. Copy paste the code in this file <https://gist.github.com/daniellevass/aa6d4042b950aaf6c0f2345530e4baa4> into your layout. This will give you all the layout elements we'll use later and move onto section 3 Displaying a cookie!*
 
 Next, we want to open our layout file. On the left find the res folder and open layout. You should be able to double click on the activity_main.xml and open it.
 
@@ -71,7 +71,7 @@ One of the most important features of our cookie clicker will be our cookie - we
 In Android we don't use pixels, but instead use `dp` which is a Density-independent Pixel. 1 point might be 1 pixel on a really low resolution device, but might be 4 pixels, or even 8 pixels on a newer device. Take a look at this handy guide Android wrote for more information <https://developer.android.com/guide/practices/screens_support.html>, you can also check out this stack overflow post <https://stackoverflow.com/a/2025541>
 
 
-Because we have a RelativeLayout parent this means we can do some special things to position our cookie on our screen. We can provide an attribute like android:layout_centerHorizontal="true".
+Because we have a RelativeLayout parent this means we can do some special things to position our cookie on our screen. We can provide an attribute like `android:layout_centerHorizontal="true"`.
 
 Now that we have our cookie image in position, we want to allow people to see it's name and maybe it's story. Let's create two `<TextView>`'s for this. Make sure you position them, and give them an id.
 

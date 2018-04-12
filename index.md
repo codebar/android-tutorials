@@ -45,7 +45,7 @@ This is the home for the codebar android tutorials! These are designed to be use
       </h2>
       <div class="card-block">
         <img src="images/kotlin.png" />
-        <p>These are our shiney new tutorials which use the Kotlin Language instead.</p>
+        <p>These are our shiny new tutorials which use the Kotlin Language instead.</p>
         <a href="{{ site.baseurl }}/kotlin" class="btn btn-primary">Kotlin Tutorials</a>
       </div>
     </div>
