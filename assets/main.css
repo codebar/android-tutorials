@@ -25,6 +25,12 @@ h2 {
   color: #A4C639;
 }
 
+.emoji-kotlin {
+  font-size: 72px;
+  margin-top: 22px;
+  color: #3BAFDA;
+}
+
 pre {
   background-color: #282c34;
   padding: 15px;
