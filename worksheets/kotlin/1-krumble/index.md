@@ -121,6 +121,7 @@ data class Cookie(val name: String, val image: Int, val story: String)
 ```
 
 > Do you notice how we're using val here now. This is because once we create the properties on our cookie object, we don't want to let people change them!
+> A data class represents a thing e.g. a cookie.  We can have dozens of different cookies that all have the same properties with different values e.g. a name, an image.
 
 Next, we can create our first cookie object:
 
