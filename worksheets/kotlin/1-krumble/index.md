@@ -7,7 +7,7 @@ The aim of this tutorial is to build a dating like app for cookies! We'll have a
 
 ![Imgur](https://i.imgur.com/3u9ATGZ.png)
 
-Before starting, please ensure you have [Android Studio installed and setup correctly]({{ site.baseurl }}/setup)
+Before starting, please ensure you have [Android Studio installed and setup correctly]({{ site.baseurl }}/setup). You can also take the steps now to work out how run your app on a device you may have, for more information check out <https://developer.android.com/studio/run/device.html>.
 
 Also, feel free to pick a different topic than cookies if you prefer. You could pick animals, fruit, or even different little green robots.
 
@@ -16,13 +16,13 @@ Also, feel free to pick a different topic than cookies if you prefer. You could 
 
 ## 1 Starting a new Android Studio Project
 
-Firstly we want to create a new app!
+Firstly we want to create a new app! With Android Studio open either press Start a new Android Studio project or from the menu go File > New > New Project.
 
 ![Imgur](https://i.imgur.com/7a8hL4R.png)
 
 On the first screen select a good **name** for your app. This is what people will see when they install your app. I went for crumble because it's similar to bumble but cookie themed.
 
-Next we have a field called **namespace** - this is how Google sandboxes your app. You want to ensure this is unique. *Talk to your coach about what sandboxing means if you're not sure.*
+Next we have a field called **Company Domain** - this is how Google sandboxes your app. You want to ensure this is unique. *Talk to your coach about what sandboxing means if you're not sure.*
 
 Finally on this screen we need to ensure the most important checkbox is ticked for this workshop! **Enable Kotlin support!**
 
@@ -88,7 +88,9 @@ We can change the background colour by changing the property `android:background
 
 ## 3 Displaying a cookie
 
-Next, we're going to look at the other file that was created `MainActivity.kt`. Find the function `onCreate` - talk to your coach about when this will get called. You can also take a look at the other android lifecycle methods here <https://developer.android.com/training/basics/activity-lifecycle/index.html>.
+Next, we're going to look at the other file that was created `MainActivity.kt`. An activity is like a page on a website. You'll need a separate activity for any new pages in your app.
+
+Find the function `onCreate` - talk to your coach about when this will get called. You can also take a look at the other android lifecycle methods here <https://developer.android.com/training/basics/activity-lifecycle/index.html>.
 
 Inside our onCreate, we want to connect to our interface elements. Below is what you'll need to type to connect to our ImageView imgCookie. Have a go at writing the connections for our TextViews for lblName and lblStory.
 
@@ -98,10 +100,11 @@ var imgCookie:ImageView = findViewById(R.id.imgCookie)
 
 > val and var
 > You'll notice we created a var for our imgCookie. Var is short for variable, which is something that can change. If our thing is never going to change we can make it a val which is short for value.
+> You'll also note that unlike Java, we don't need to end our code sentence with a semicolon.
 
 Next we can set some values up for our cookie. This is called hardcoding, where we're writing up values into our code. We're going to make this better soon!
 
- For the image, you can either google for a cookie image that's free to use, or use ours that we found earlier = http://imgur.com/a/9BXV4 . You need to save it inside your project folder using Windows Explorer or Mac OSX Finder and navigate to the following -> app -> src -> main -> res . You need to create a folder called drawable-xhdpi and place your cookie image in here! *Speak to your coach about the why there are so many different folders*
+ For the image, you can either google for a cookie image that's free to use, or use ours that we found earlier = http://imgur.com/a/9BXV4 . You need to save it inside your project folder using Windows Explorer or Mac OSX Finder and navigate to the following -> app -> src -> main -> res . You need to create a folder called drawable-xhdpi and place your cookie image in here! You also need to be careful about how you name your cookie; stick to lowercase letters and underscores e.g. peanut_cookie. *Speak to your coach about the why there are so many different folders*
 
 ![Imgur](https://i.imgur.com/OMHYp9V.png)
 
@@ -148,6 +151,9 @@ Let's set up some outlets for our buttons. We can create a toast message, the li
 
 ![Imgur](https://i.imgur.com/27dpVts.png)
 
+> here we've created a listener for each of our buttons. These will listen for the button to be clicked, then run the code in thats inside the curley brackets. This is very similar to how a JavaScript onClick works.
+> Secondly, our toast contains three things, only one of which is the text message it should say. The first variable is the context, we need to supply where this toast should appear. For us, right now, that's our MainActivity. The final property is how long that message should stay up. We only want to see it for a short time.
+
 How about, let's extend our cookie class to contain what the cookie might say for either of the options.
 
 ![Imgur](https://i.imgur.com/qoVjN9W.png)
@@ -183,5 +189,6 @@ We think there's tonnes of things you could do to make your cookie tinder app tr
 If your stuck for more ideas to add to your game:
 * ensure you have a diverse set of cookies to chose between (10+ would be great)
 * make the UI more friendly - how about a state selector for the button background
+* consider using a local function to replace the code that is written twice for the button clicks - https://kotlinlang.org/docs/reference/functions.html#local-functions
 * investigate how to animate the picture to tilt out
 * look into sorting and filtering your array of cookies
