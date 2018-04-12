@@ -9,13 +9,13 @@ ruby RUBY_VERSION
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "3.4.3"
-gem "rouge", "1.7"
+gem "jekyll", "3.7.3"
+gem "rouge", "3.1.1"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-redirect-from", "~> 0.13"
-  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-feed", "~> 0.9"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
