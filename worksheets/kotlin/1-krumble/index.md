@@ -169,7 +169,7 @@ Firstly we're going to create a new function to generate and return us a list of
 
 ![Imgur](https://i.imgur.com/RqF5uEv.png)
 
-Next we can set up a val to point to the current index, which starts at 0. We can then increment it everytime we like or dislike our cookie, and show our new cookie.
+Next we can set up a `var` to point to the current index, which starts at 0. We can then increment it everytime we like or dislike our cookie, and show our new cookie.
 
 ![Imgur](https://i.imgur.com/EfuWhlu.png)
 
