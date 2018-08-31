@@ -51,7 +51,7 @@ Now, on your Android phone you need to make sure *USB debugging* is turned on. G
 
 Now you are in developer mode, press back and you should see a new *Developer options* menu. Tap into there and make sure the switch at the top of the screen is turned on. Then scroll down and make sure *USB Debugging* is also turned on.
 
-### 3.1 Setting up the Android emulator
+### 3.2 Setting up the Android emulator
 If you don't have an Android phone, you can also set up an emulator to run on your computer.
 
 First, in Android Studio with your project open, Launch the Android Virtual Device Manager by selecting *Tools* > *Android* > *AVD Manager*, or by clicking the AVD Manager icon <img src="https://developer.android.com/images/tools/avd-manager-studio.png" style="height: 1.5em; vertical-align: middle" alt="" /> in the toolbar. On the screen which opens, press the *Create Virtual Device* button.
@@ -71,6 +71,8 @@ On the next screen leave everything as it is and press *Finish*. This will finis
 You can now start the emulator by pressing the play button <img src="https://developer.android.com/images/tools/as-avd-start.png" style="height: 1.3em" alt="" /> next to your newly created emulator. It will take a few minutes to start but will eventually show an Android phone in a window on your computer.
 
 ![The android emulator running](assets/images/emulator-4-complete.png)
+
+Having troubles setting up the emulator? Check out this [troubleshooting guide](https://developer.android.com/studio/run/emulator-troubleshooting).
 
 ## 4. Running the app on your phone/emulator
 We are now going to run your first application to make sure everything is working. All you need to do is press the run button <img src="https://developer.android.com/studio/images/buttons/toolbar-run.png" style="height: 1.3em" alt="" /> in the toolbar of your Android Studio project window and then make sure your phone or emulator is selected in the window which pops up.
