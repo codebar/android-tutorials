@@ -21,26 +21,25 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Test Site', // Title for your website.
-  tagline: 'A website for testing',
-  url: 'https://your-docusaurus-test-site.com', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  title: 'codebar android tutorials', // Title for your website.
+  tagline: 'A website for the codebar android tutorials',
+  url: 'https://codebar.github.io', // Your website URL
+  baseUrl: '/android-tutorials/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'test-site',
-  organizationName: 'facebook',
+  projectName: 'android-tutorials',
+  organizationName: 'codebar',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'API'},
-    {page: 'help', label: 'Help'},
+    {doc: 'setup', label: 'Getting Setup'},
+    {doc: 'cookie-clicker-java', label: 'Kotlin Tutorials'},
     {blog: true, label: 'Blog'},
   ],
 
@@ -48,13 +47,13 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/favicon.ico',
-  footerIcon: 'img/favicon.ico',
+  headerIcon: 'img/codebar-full-white-logo.png',
+  footerIcon: 'img/codebar-full-white-logo.png',
   favicon: 'img/favicon.ico',
 
   /* Colors for website */
   colors: {
-    primaryColor: '#5b1e7b',
+    primaryColor: '#3ddc84',
     secondaryColor: '#3f1556',
   },
 

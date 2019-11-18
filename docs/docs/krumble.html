@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Krumble · codebar android tutorials</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Introduction to Kotlin by building a cookie themed tinder"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Krumble · codebar android tutorials"/><meta property="og:type" content="website"/><meta property="og:url" content="https://codebar.github.io/android-tutorials/"/><meta property="og:description" content="# Introduction to Kotlin by building a cookie themed tinder"/><meta property="og:image" content="https://codebar.github.io/android-tutorials/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://codebar.github.io/android-tutorials/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/android-tutorials/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://codebar.github.io/android-tutorials/blog/atom.xml" title="codebar android tutorials Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://codebar.github.io/android-tutorials/blog/feed.xml" title="codebar android tutorials Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/android-tutorials/js/scrollSpy.js"></script><link rel="stylesheet" href="/android-tutorials/css/main.css"/><script src="/android-tutorials/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/android-tutorials/"><img class="logo" src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar android tutorials"/><h2 class="headerTitleWithLogo">codebar android tutorials</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/android-tutorials/docs/setup" target="_self">Getting Setup</a></li><li class="siteNavGroupActive"><a href="/android-tutorials/docs/cookie-clicker-java" target="_self">Kotlin Tutorials</a></li><li class=""><a href="/android-tutorials/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Kotlin Tutorials</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Kotlin Tutorials</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/android-tutorials/docs/krumble">Krumble</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Java Tutorials (deprecated)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/cookie-clicker-java">Cookie Clicker (Java)</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/layouts">Android Layouts</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/maps">Google Maps</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/activity-lifecycle">Activity Lifecycle</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/espresso">Espresso UI Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/more-resources">Other Resources</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Krumble</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="introduction-to-kotlin-by-building-a-cookie-themed-tinder"></a><a href="#introduction-to-kotlin-by-building-a-cookie-themed-tinder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction to Kotlin by building a cookie themed tinder</h1>
+<p>The aim of this tutorial is to build a dating like app for cookies! We'll have a list of cookies to either like or dislike!</p>
+<p><img src="https://i.imgur.com/3u9ATGZ.png" alt="Imgur"></p>
+<p>Before starting, please ensure you have [Android Studio installed and setup correctly]({{ site.baseurl }}/setup). You can also take the steps now to work out how run your app on a device you may have, for more information check out <a href="https://developer.android.com/studio/run/device.html">https://developer.android.com/studio/run/device.html</a>.</p>
+<p>Also, feel free to pick a different topic than cookies if you prefer. You could pick animals, fruit, or even different little green robots.</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="1-starting-a-new-android-studio-project"></a><a href="#1-starting-a-new-android-studio-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 Starting a new Android Studio Project</h2>
+<p>Firstly we want to create a new app! With Android Studio open either press Start a new Android Studio project or from the menu go File &gt; New &gt; New Project.</p>
+<p><img src="https://i.imgur.com/7a8hL4R.png" alt="Imgur"></p>
+<p>On the first screen select a good <strong>name</strong> for your app. This is what people will see when they install your app. I went for crumble because it's similar to bumble but cookie themed.</p>
+<p>Next we have a field called <strong>Company Domain</strong> - this is how Google sandboxes your app. You want to ensure this is unique. <em>Talk to your coach about what sandboxing means if you're not sure.</em></p>
+<p>Finally on this screen we need to ensure the most important checkbox is ticked for this workshop! <strong>Enable Kotlin support!</strong></p>
+<p>On the proceeding screens, you want to set a Min SDK - this is the minimum version of Android we want to support. You can click on the version number to get more information and see exactly how many people in the world who could install your app!</p>
+<p><em>Speak to your coach about what version they have to use at work and the fun they have involved with that!</em></p>
+<p>Next, we want to create an Empty Activity. I'd keep the default names of <code>MainActivity</code> and <code>activity_main</code>.</p>
+<p>Finally you can click finish! This might take some time to actually create everything needed for your shiny new app ✨</p>
+<p><em>Take some time to look at the different buttons with your coach - where are the different files located in the project? How do you run your app in an emulator or on your device?</em></p>
+<h2><a class="anchor" aria-hidden="true" id="2-layout"></a><a href="#2-layout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 Layout</h2>
+<p><em>If you feel confident with layouts already, or would prefer to focus on purely kotlin this time. Copy paste the code in this file <a href="https://gist.github.com/daniellevass/aa6d4042b950aaf6c0f2345530e4baa4">https://gist.github.com/daniellevass/aa6d4042b950aaf6c0f2345530e4baa4</a> into your layout. This will give you all the layout elements we'll use later and move onto section 3 Displaying a cookie!</em></p>
+<p>Next, we want to open our layout file. On the left find the res folder and open layout. You should be able to double click on the activity_main.xml and open it.</p>
+<p>Layouts open in 'design' mode. This gives you some tools to make layouts with a graphical interface, but it's more common to write layouts by hand using the text editor. If you're familiar with Dreamweaver, it's a similar “What you see is what you get” (WYSIWYG) vs code situation.</p>
+<p>We're going to be dealing with the XML directly in this tutorial, so find the 'text' tab in the bottom left corner of the design window.</p>
+<p>Now you should see some code that looks familiar-ish! Android layouts using XML, which is very very similar to HTML. You should see already we have a <code>&lt;RelativeLayout&gt;</code> and a <code>&lt;TextView&gt;</code> tag, with some attributes already there. The thing that looks weird is that all the attributes currently are prefixed with the word android or app.</p>
+<p>At the moment Android Studio creates a constraint layout by default. These are bit more complicated to start with. So let's delete everything that's there and put this instead:</p>
+<pre><code class="hljs css language-xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
+</code></pre>
+<p>One of the most important features of our cookie clicker will be our cookie - we can create an <code>&lt;ImageView&gt;</code>, you will need to provide a height and a width. We also need to provide it an id so we can connect to it later.</p>
+<pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/imgCookie"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"200dp"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"200dp"</span>/&gt;</span>
+</code></pre>
+<blockquote>
+<p>id’s need to start with @+id/ - the plus symbol means it assigns the variable name to the current ImageView</p>
+</blockquote>
+<p>In Android we don't use pixels, but instead use <code>dp</code> which is a Density-independent Pixel. 1 point might be 1 pixel on a really low resolution device, but might be 4 pixels, or even 8 pixels on a newer device. Take a look at this handy guide Android wrote for more information <a href="https://developer.android.com/guide/practices/screens_support.html">https://developer.android.com/guide/practices/screens_support.html</a>, you can also check out this stack overflow post <a href="https://stackoverflow.com/a/2025541">https://stackoverflow.com/a/2025541</a></p>
+<p>Because we have a RelativeLayout parent this means we can do some special things to position our cookie on our screen. We can provide an attribute like <code>android:layout_centerHorizontal=&quot;true&quot;</code>.</p>
+<p>Now that we have our cookie image in position, we want to allow people to see it's name and maybe it's story. Let's create two <code>&lt;TextView&gt;</code>'s for this. Make sure you position them, and give them an id.</p>
+<p>Finally, we can add two buttons. These are <code>&lt;Button&gt;</code>'s. Again remember to position them and give them an id. How about we have a look at styling these red and green to make them easier for people to click?</p>
+<p>We can change the background colour by changing the property <code>android:background=&quot;#A0D468&quot;</code> and we can provide it a hex value. If you want some inspiration for hex colours check out <a href="https://material.io/guidelines/style/color.html">https://material.io/guidelines/style/color.html</a></p>
+<p><img src="https://i.imgur.com/mvEHFov.png" alt="Imgur"></p>
+<blockquote>
+<p>my final layout code 😎</p>
+</blockquote>
+<p><em>Ask your coach what other special things RelativeLayout can do? Do you know any other alternative parent layouts? Take a look at <a href="https://developer.android.com/guide/topics/ui/layout/relative.html">https://developer.android.com/guide/topics/ui/layout/relative.html</a> for more information.</em></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="3-displaying-a-cookie"></a><a href="#3-displaying-a-cookie" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3 Displaying a cookie</h2>
+<p>Next, we're going to look at the other file that was created <code>MainActivity.kt</code>. An activity is like a page on a website. You'll need a separate activity for any new pages in your app.</p>
+<p>Find the function <code>onCreate</code> - talk to your coach about when this will get called. You can also take a look at the other android lifecycle methods here <a href="https://developer.android.com/training/basics/activity-lifecycle/index.html">https://developer.android.com/training/basics/activity-lifecycle/index.html</a>.</p>
+<p>Inside our onCreate, we want to connect to our interface elements. Below is what you'll need to type to connect to our ImageView imgCookie. Have a go at writing the connections for our TextViews for lblName and lblStory.</p>
+<pre><code class="hljs">var imgCookie:ImageView = find<span class="hljs-constructor">ViewById(R.<span class="hljs-params">id</span>.<span class="hljs-params">imgCookie</span>)</span>
+</code></pre>
+<blockquote>
+<p>val and var
+You'll notice we created a var for our imgCookie. Var is short for variable, which is something that can change. If our thing is never going to change we can make it a val which is short for value.
+You'll also note that unlike Java, we don't need to end our code sentence with a semicolon.</p>
+</blockquote>
+<p>Next we can set some values up for our cookie. This is called hardcoding, where we're writing up values into our code. We're going to make this better soon!</p>
+<p>For the image, you can either google for a cookie image that's free to use, or use ours that we found earlier = <a href="http://imgur.com/a/9BXV4">http://imgur.com/a/9BXV4</a> . You need to save it inside your project folder using Windows Explorer or Mac OSX Finder and navigate to the following -&gt; app -&gt; src -&gt; main -&gt; res . You need to create a folder called drawable-xhdpi and place your cookie image in here! You also need to be careful about how you name your cookie; stick to lowercase letters and underscores e.g. peanut_cookie. <em>Speak to your coach about the why there are so many different folders</em></p>
+<p><img src="https://i.imgur.com/OMHYp9V.png" alt="Imgur"></p>
+<p>Make sure you run this on either an emulator or your own device to see it working!</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="4-cookie-class"></a><a href="#4-cookie-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4 Cookie Class</h2>
+<p>So we've now determined that our cookie has a set of properties. We can create a class to hold these values for us.</p>
+<pre><code class="hljs">data <span class="hljs-keyword">class</span> <span class="hljs-symbol">Cookie</span>(<span class="hljs-symbol">val</span> <span class="hljs-symbol">name: <span class="hljs-symbol">String</span>, <span class="hljs-symbol">val</span></span> <span class="hljs-symbol">image: <span class="hljs-symbol">Int</span>, <span class="hljs-symbol">val</span></span> <span class="hljs-symbol">story: <span class="hljs-symbol">String</span></span>)
+</code></pre>
+<blockquote>
+<p>Do you notice how we're using val here now. This is because once we create the properties on our cookie object, we don't want to let people change them!
+A data class represents a thing e.g. a cookie.  We can have dozens of different cookies that all have the same properties with different values e.g. a name, an image.</p>
+</blockquote>
+<p>Next, we can create our first cookie object:</p>
+<pre><code class="hljs"> val cookie = Cookie(<span class="hljs-string">"Mr Peanut"</span>, R<span class="hljs-selector-class">.drawable</span><span class="hljs-selector-class">.peanut_cookie</span>,
+                <span class="hljs-string">"Loves taking long walks on the beach."</span>)
+</code></pre>
+<p>We now need to make sure we're using the values from our cookie:</p>
+<p><img src="https://i.imgur.com/LM0Xwyv.png" alt="Imgur"></p>
+<p>We can look at refactoring this a bit. We can create a function to show a Cookie, where we can pass a cookie to show as a parameter. This will make it a lot easier to show a different cookie when we make more!</p>
+<p><img src="https://i.imgur.com/oTmEthx.png" alt="Imgur"></p>
+<p>However, we have a problem! We're currently creating those outlets everytime. There's a better way! let's set them up as variables we can use anywhere in the class. We also need to set them up as <code>lateinit</code>. This is because kotlin doesn't like null, or something that doesn't exist yet. We're telling our Activity these things do exist, but later! They'll exist by the time we want to use them.</p>
+<p><img src="https://i.imgur.com/GXi16fg.png" alt="Imgur"></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="5-liking-and-disliking"></a><a href="#5-liking-and-disliking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5 Liking and Disliking</h2>
+<p>Next, we want to allow people either express their love or hatred for our cookie!</p>
+<p>Let's set up some outlets for our buttons. We can create a toast message, the little messages that pop up from the bottom of your screen. Run it on your device or emulator to see it working.</p>
+<p><img src="https://i.imgur.com/27dpVts.png" alt="Imgur"></p>
+<blockquote>
+<p>here we've created a listener for each of our buttons. These will listen for the button to be clicked, then run the code in thats inside the curley brackets. This is very similar to how a JavaScript onClick works.
+Secondly, our toast contains three things, only one of which is the text message it should say. The first variable is the context, we need to supply where this toast should appear. For us, right now, that's our MainActivity. The final property is how long that message should stay up. We only want to see it for a short time.</p>
+</blockquote>
+<p>How about, let's extend our cookie class to contain what the cookie might say for either of the options.</p>
+<p><img src="https://i.imgur.com/qoVjN9W.png" alt="Imgur"></p>
+<p>Let's test this out on our emulator or real device to make sure our project still works.</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="6-more-cookies"></a><a href="#6-more-cookies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 More Cookies!</h2>
+<p>Firstly we're going to create a new function to generate and return us a list of cookies. We can then use those generated cookies in our Activity. We can also delete our hard coded cookie, and just use the first cookie in our list. Lists starts at 0 in Kotlin (as in Java too). Much like how we number building floors in the UK; where ground is 0, floor 1 goes next etc.</p>
+<p><img src="https://i.imgur.com/RqF5uEv.png" alt="Imgur"></p>
+<p>Next we can set up a <code>var</code> to point to the current index, which starts at 0. We can then increment it everytime we like or dislike our cookie, and show our new cookie.</p>
+<p><img src="https://i.imgur.com/EfuWhlu.png" alt="Imgur"></p>
+<p>However, what happens when we get to the last cookie and you like or dislike it? Run it on an emulator or your device to see what happens.</p>
+<p>It sadly crashes :( This definitely isn't what we wanted! We want to start our cookies back at the beginning.</p>
+<p><img src="https://i.imgur.com/KmZuIPq.png" alt="Imgur"></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="7-finishing"></a><a href="#7-finishing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7 Finishing</h2>
+<p>You managed to get to the end of the tutorial! congratulations 🏆 !!!</p>
+<p>We think there's tonnes of things you could do to make your cookie tinder app truly unique!</p>
+<p>If your stuck for more ideas to add to your game:</p>
+<ul>
+<li>ensure you have a diverse set of cookies to chose between (10+ would be great)</li>
+<li>make the UI more friendly - how about a state selector for the button background</li>
+<li>consider using a local function to replace the code that is written twice for the button clicks - <a href="https://kotlinlang.org/docs/reference/functions.html#local-functions">https://kotlinlang.org/docs/reference/functions.html#local-functions</a></li>
+<li>investigate how to animate the picture to tilt out</li>
+<li>look into sorting and filtering your array of cookies</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/android-tutorials/docs/cookie-clicker-java"><span>Cookie Clicker (Java)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-starting-a-new-android-studio-project">1 Starting a new Android Studio Project</a></li><li><a href="#2-layout">2 Layout</a></li><li><a href="#3-displaying-a-cookie">3 Displaying a cookie</a></li><li><a href="#4-cookie-class">4 Cookie Class</a></li><li><a href="#5-liking-and-disliking">5 Liking and Disliking</a></li><li><a href="#6-more-cookies">6 More Cookies!</a></li><li><a href="#7-finishing">7 Finishing</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/android-tutorials/docs/en/attributions.html">Attributions</a></section><a href="https://codebar.io/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar"/></a></footer></div></body></html>
