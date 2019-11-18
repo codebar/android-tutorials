@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Espresso UI Testing · codebar android tutorials</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Espresso UI Testing"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Espresso UI Testing · codebar android tutorials"/><meta property="og:type" content="website"/><meta property="og:url" content="https://codebar.github.io/android-tutorials/"/><meta property="og:description" content="# Espresso UI Testing"/><meta property="og:image" content="https://codebar.github.io/android-tutorials/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://codebar.github.io/android-tutorials/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/android-tutorials/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://codebar.github.io/android-tutorials/blog/atom.xml" title="codebar android tutorials Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://codebar.github.io/android-tutorials/blog/feed.xml" title="codebar android tutorials Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/android-tutorials/js/scrollSpy.js"></script><link rel="stylesheet" href="/android-tutorials/css/main.css"/><script src="/android-tutorials/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/android-tutorials/"><img class="logo" src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar android tutorials"/><h2 class="headerTitleWithLogo">codebar android tutorials</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/android-tutorials/docs/setup" target="_self">Getting Setup</a></li><li class="siteNavGroupActive"><a href="/android-tutorials/docs/cookie-clicker-java" target="_self">Kotlin Tutorials</a></li><li class=""><a href="/android-tutorials/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Java Tutorials (deprecated)</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Kotlin Tutorials</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/krumble">Krumble</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Java Tutorials (deprecated)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/cookie-clicker-java">Cookie Clicker (Java)</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/layouts">Android Layouts</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/maps">Google Maps</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/activity-lifecycle">Activity Lifecycle</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/android-tutorials/docs/espresso">Espresso UI Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/more-resources">Other Resources</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Espresso UI Testing</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="espresso-ui-testing"></a><a href="#espresso-ui-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Espresso UI Testing</h1>
+<h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>This tutorial follows on from the <a href="cookie-clicker-java">first one where you built a cookie clicker</a>. If you worked on that tutorial already, follow along using the code you wrote previously.</p>
+<h2><a class="anchor" aria-hidden="true" id="what-is-ui-testing"></a><a href="#what-is-ui-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is UI testing?</h2>
+<p>To make sure your software works properly you need to test it whenever you make a change that you want to release to your users. To do this manually for even a small app this is a boring, repetitive, and time-consuming job. That's precisely the sort of thing which we use computers for! Automated tests are pieces of code which test that your software is working correctly. You can set them up to run regularly and on many devices so you don't have to manually test your app every time you make a change. Plus they're usually simple and fun to create!</p>
+<p>We are going to write some UI tests for our cookie clicker app. A UI test is also known as a &quot;functional test&quot; as it is testing the functionality of the app. There are other types of tests such as &quot;unit tests&quot; which you may have come across in the Javascript, Ruby, or Python tutorials.</p>
+<p>A UI test will take a set of instructions about what to click on and checks that the application responds correctly. For example, on a sign in screen you might have an espresso test to check that an error appears if you enter an email address with the wrong format. UI tests are doing the same thing as if you were clicking on and testing the app manually, but they can do it much quicker, and they don't get bored when they have to do it for the 100th time!</p>
+<p>First, we need to set up our testing framework.</p>
+<h2><a class="anchor" aria-hidden="true" id="setting-up-espresso"></a><a href="#setting-up-espresso" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up Espresso</h2>
+<p>We are going to be using a testing framework called <a href="https://google.github.io/android-testing-support-library/docs/espresso/index.html">Espresso</a> to interact with our app and test that it is working correctly. This is a tool provided by Google themselves.</p>
+<p>First, we need to make sure the libraries are installed correctly.</p>
+<p>In Android Studio, expand the <code>Gradle Scripts</code> section at the bottom of the project explorer on the left. Then double click to open the <code>build.gradle (Module: app)</code> file. Make sure it's the <code>Module: app</code> one and not the <code>Project: CookieClicker</code> one. This is the file which describes how to build and run our Android application. We need to make sure everything is set up correctly here to let us use Espresso.</p>
+<p>Inside the <code>dependencies</code> section, make sure that these two blocks of code are there:</p>
+<pre><code class="hljs css language-groovy">androidTestCompile(<span class="hljs-string">'com.android.support.test.espresso:espresso-core:2.2.2'</span>, {
+    exclude <span class="hljs-string">group:</span> <span class="hljs-string">'com.android.support'</span>, <span class="hljs-string">module:</span> <span class="hljs-string">'support-annotations'</span>
+})
+</code></pre>
+<p>And:</p>
+<pre><code class="hljs css language-groovy">testCompile <span class="hljs-string">'junit:junit:4.12'</span>
+</code></pre>
+<p>They might already be there depending on how you created your project. If they aren't, add them in. These lines tell the Android build system which version of the Espresso library to use.</p>
+<p>Also, make sure that this line is in your <code>android.defaultConfig</code> section:</p>
+<pre><code class="hljs css language-groovy">testInstrumentationRunner <span class="hljs-string">"android.support.test.runner.AndroidJUnitRunner"</span>
+</code></pre>
+<p>The complete file should look something like this (<em>Don't copy this as some of your settings will need to be left as they were before. Also, don't worry if yours has some extra bits. Ask your coach if you aren't sure if you have done it correctly</em>):</p>
+<pre><code class="hljs css language-groovy">apply <span class="hljs-string">plugin:</span> <span class="hljs-string">'com.android.application'</span>
+
+android {
+    compileSdkVersion <span class="hljs-number">25</span>
+    buildToolsVersion <span class="hljs-string">"25.0.2"</span>
+    defaultConfig {
+        applicationId <span class="hljs-string">"io.codebar.cookieclicker"</span>
+        minSdkVersion <span class="hljs-number">14</span>
+        targetSdkVersion <span class="hljs-number">25</span>
+        versionCode <span class="hljs-number">1</span>
+        versionName <span class="hljs-string">"1.0"</span>
+        testInstrumentationRunner <span class="hljs-string">"android.support.test.runner.AndroidJUnitRunner"</span>
+    }
+}
+
+dependencies {
+    compile fileTree(<span class="hljs-string">dir:</span> <span class="hljs-string">'libs'</span>, <span class="hljs-string">include:</span> [<span class="hljs-string">'*.jar'</span>])
+    compile <span class="hljs-string">'com.android.support:appcompat-v7:25.3.1'</span>
+    compile <span class="hljs-string">'com.android.support.constraint:constraint-layout:1.0.2'</span>
+
+    testCompile <span class="hljs-string">'junit:junit:4.12'</span>
+    androidTestCompile(<span class="hljs-string">'com.android.support.test.espresso:espresso-core:2.2.2'</span>, {
+        exclude <span class="hljs-string">group:</span> <span class="hljs-string">'com.android.support'</span>, <span class="hljs-string">module:</span> <span class="hljs-string">'support-annotations'</span>
+    })
+}
+</code></pre>
+<p>Press the <em>Sync Now</em> button in the golden yellow bar which has appeared along the top of the code editor window. If the bar disappears after syncing, then everything is set up correctly! If the bar shows and error message and a <em>Try Again</em> button then something has gone wrong. Take a look at the error at the bottom of the screen to see if you can fix it, or ask your coach for help.</p>
+<h2><a class="anchor" aria-hidden="true" id="writing-our-first-test"></a><a href="#writing-our-first-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writing our first test</h2>
+<p>Now we have everything set up; we can write our first test!</p>
+<p>In the project navigator on the left panel of Android Studio, navigate through <code>app -&gt; java -&gt; &lt;package name&gt; (androidTest)</code> where <code>&lt;package name&gt;</code> is the name you used when you set up the project. Right click on the <code>(androidTest)</code> line and choose <code>New -&gt; Java Class</code>. In the window which pops up, give it a name of <code>CookieClickerTest</code> and then press <code>OK</code>. This will create and open a file which looks like this:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> io.codebar.cookieclicker;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CookieClickerTest</span> </span>{
+}
+</code></pre>
+<p>Above the <code>public class</code> line, add in this line:</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@RunWith</span>(AndroidJUnit4<span class="hljs-class">.<span class="hljs-keyword">class</span>)
+</span></code></pre>
+<p>Remember to use the autocomplete as much as possible as it will also add in some <code>import</code> lines above for you. This line tells Android how to run the tests we are about to write.</p>
+<p>Inside the <code>class</code> add the following line:</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Rule</span>
+<span class="hljs-keyword">public</span> ActivityTestRule&lt;MainActivity&gt; activityTestRule = <span class="hljs-keyword">new</span> ActivityTestRule&lt;&gt;(MainActivity<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+</code></pre>
+<p>This is a &quot;test rule&quot; and test Espresso which activity (part of our app) we want to test. We have chosen the <code>MainActivity</code>. This rule will make Espresso open this activity before running our test so we can see the cookie clicker and test it is working.</p>
+<p>We now need to actually write some test code. Inside the <code>class</code>, create a new method called <code>totalStartsAtZero</code>. It should look like this:</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">totalStartsAtZero</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+
+}
+</code></pre>
+<p>We will be writing one of these methods for each test that we want to perform. As you can guess from the name, we are first going to check that the counter starts off at zero.</p>
+<p>Inside the method, write the following code:</p>
+<pre><code class="hljs css language-java">onView(withId(R.id.lblTotal))
+    .check(matches(withText(<span class="hljs-string">"0"</span>)));
+</code></pre>
+<p>So what are we doing here? The first line (<code>onView</code>) is finding the view which matches the requirements we have given to it. We have asked for the view with the id of <code>lblTotal</code> using <code>withId(R.id.lblTotal)</code>. Remember that this is the id we gave to our <code>TextView</code> in the first tutorial in the <code>activity_main.xml</code> layout file. The second line is checking that the view matches some conditions. We are checking that the view has the text <code>&quot;0&quot;</code> using <code>withText(&quot;0&quot;)</code>.</p>
+<p>This pattern of getting the view with a set of requirements and then checking something with it forms the basis of how Espresso tests work.</p>
+<p>The completed test file should now look like this (<em>remember, don't copy this directly as some of your code (such as the package name) need to be different. As your coach if you are not sure</em>):</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">package</span> io.codebar.cookieclicker;
+
+<span class="hljs-keyword">import</span> android.support.test.rule.ActivityTestRule;
+<span class="hljs-keyword">import</span> android.support.test.runner.AndroidJUnit4;
+
+<span class="hljs-keyword">import</span> org.junit.Rule;
+<span class="hljs-keyword">import</span> org.junit.Test;
+<span class="hljs-keyword">import</span> org.junit.runner.RunWith;
+
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> android.support.test.espresso.Espresso.onView;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> android.support.test.espresso.assertion.ViewAssertions.matches;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> android.support.test.espresso.matcher.ViewMatchers.withId;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> android.support.test.espresso.matcher.ViewMatchers.withText;
+
+<span class="hljs-meta">@RunWith</span>(AndroidJUnit4<span class="hljs-class">.<span class="hljs-keyword">class</span>)
+<span class="hljs-title">public</span> <span class="hljs-title">class</span> <span class="hljs-title">CookieClickerTest</span> </span>{
+    <span class="hljs-meta">@Rule</span>
+    <span class="hljs-keyword">public</span> ActivityTestRule&lt;MainActivity&gt; activityTestRule = <span class="hljs-keyword">new</span> ActivityTestRule&lt;&gt;(MainActivity<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">totalStartsAtZero</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        onView(withId(R.id.lblTotal))
+                .check(matches(withText(<span class="hljs-string">"0"</span>)));
+    }
+}
+
+</code></pre>
+<p>Let's run our test to make sure the app is working correctly. Press the &quot;play&quot; button to the left of the method and pick your Android device or emulator to run the tests on. This might take a short amount of time but the app should appear and then quickly disappear, and Android Studio should show a &quot;Tests passed&quot; message. This might even be too quick to see, and that's the advantage of using automated tests! Run it a few times if you want to test it is working all the time.</p>
+<p><img src="/android-tutorials/docs/assets/espresso/test_passing.png" alt="Test passing"></p>
+<p>Just to see what happens when a test fails, change the check to look for <code>&quot;1&quot;</code> and run the test again. You should see an error message saying what happened and some hints on how to fix it. There's a lot of information there, but there's normally enough to know what went wrong.</p>
+<p><img src="/android-tutorials/docs/assets/espresso/test_failing.png" alt="Test failing"></p>
+<p>Change you test back to check for <code>&quot;0&quot;</code> so that it passes again.</p>
+<h2><a class="anchor" aria-hidden="true" id="tapping-on-the-cookie"></a><a href="#tapping-on-the-cookie" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tapping on the cookie</h2>
+<p>We should now do something a little more interesting with our tests. We are going to test that pressing on the cookie increases our total counter.</p>
+<p>Create a new method called <code>totalIncreasesWhenCookieClicked</code>. Inside this method add the following code:</p>
+<pre><code class="hljs css language-java">onView(withId(R.id.imgCookie))
+        .perform(click());
+</code></pre>
+<p>This looks similar to the code before, except this time we are performing an action rather than checking something. The first line finds the view with the id <code>imgCookie</code> (take a look at your <code>activity-main.xml</code> file if you can't remember which view this was). The second line then performs a click action on it. This will call our <code>OnClickListener</code> in our <code>MainActivity.java</code> file and should update the total label. We now need to write a check for that.</p>
+<p>To do this, add in these lines to the new test method:</p>
+<pre><code class="hljs css language-java">onView(withId(R.id.lblTotal))
+        .check(matches(withText(<span class="hljs-string">"1"</span>)));
+</code></pre>
+<p>This is almost exactly the same as the code we wrote for our <code>totalStartsAtZero</code> test, but we're instead checking to see that it is now <code>&quot;1&quot;</code>.</p>
+<p>Our completed test should now look like this:</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">totalIncreasesWhenCookieClicked</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+    onView(withId(R.id.imgCookie))
+            .perform(click());
+
+    onView(withId(R.id.lblTotal))
+            .check(matches(withText(<span class="hljs-string">"1"</span>)));
+}
+</code></pre>
+<p>Let's run this new test using the play icon next to the <code>totalIncreasesWhenCookieClicked</code> method line. This test should take just long enough for you to see the 1 on the screen, but it's still so fast that you might blink and miss it!</p>
+<div class="aside idea">
+<p class="aside-title">Aside: Breakpoints</p>
+<p>If the test is running too fast and you would like to see what is happening clearly, you can try using a _breakpoint_. A breakpoint is a marker which tells the application to pause at a particular line of code so you can see what it is doing. They are very useful for debugging your apps!</p>
+<p>To set a breakpoint, click in the margin to the left of the line of code you would like the test to stop on. The first line of the <code>totalIncreasesWhenCookieClicked</code> method is a good place. Then, use the "debug run" button (the one with the bug and play icon to the right of the "play" button you used before).</p>
+<p>Now when the test runs, it should stop on that line and show the "debugger" panel at the bottom of the Android Studio window. You can use the buttons in that panel to "step" between lines or to continue running. Hover over the buttons to see a tooltip for what they do and ask your coach if you are unsure.</p>
+</div>
+<h2><a class="anchor" aria-hidden="true" id="getting-a-high-score"></a><a href="#getting-a-high-score" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting a high score!</h2>
+<p>We've now tested all the functionality of our app, so now let's do something just for fun: let's make Espresso click loads of times on the cookie and get a high score!</p>
+<p>Create a new method called <code>achieveHighScore</code>. Copy the code for the click test you just wrote and wrap the code to click on the cookie image into a for-loop from 0 to 100. You then need to check that the total counter has reached <code>&quot;100&quot;</code> after the for-loop has completed. Ask your coach, if you're not sure how to do this, or take a peek at the code below:</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">achieveHighScore</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) {
+        onView(withId(R.id.imgCookie))
+                .perform(click());
+    }
+
+    onView(withId(R.id.lblTotal))
+            .check(matches(withText(<span class="hljs-string">"100"</span>)));
+}
+</code></pre>
+<p>If you run this test it should take long enough that you can see what's going on.</p>
+<p>As well as running the tests one by one, you can run all your apps tests by pressing on the &quot;double play&quot; icon next to the <code>public class CookieClickerTest</code> line. This will run all the tests in this file one by one and let you know which ones pass and fail.</p>
+<p><img src="/android-tutorials/docs/assets/espresso/all_tests_passing.png" alt="All tests passing"></p>
+<h2><a class="anchor" aria-hidden="true" id="further-information"></a><a href="#further-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Further information</h2>
+<p>You have now tested your cookie clicker app!</p>
+<p>You can read more about Android testing using the links below:</p>
+<ul>
+<li><a href="https://google.github.io/android-testing-support-library/docs/espresso/index.html">Espresso documentation</a>.</li>
+<li><a href="https://developer.android.com/studio/test/index.html">Android testing documentation</a>.</li>
+<li><a href="https://developer.android.com/studio/test/espresso-test-recorder.html">Using the Espresso test recorder</a>.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="possible-extension"></a><a href="#possible-extension" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible extension</h2>
+<p>You can try extending your cookie clicker and tests by adding an <a href="https://developer.android.com/reference/android/widget/EditText.html"><code>EditText</code></a> to enter your name, and a button to submit your score. Make sure you write some tests for it too!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/android-tutorials/docs/activity-lifecycle"><span class="arrow-prev">← </span><span>Activity Lifecycle</span></a><a class="docs-next button" href="/android-tutorials/docs/more-resources"><span>Other Resources</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#what-is-ui-testing">What is UI testing?</a></li><li><a href="#setting-up-espresso">Setting up Espresso</a></li><li><a href="#writing-our-first-test">Writing our first test</a></li><li><a href="#tapping-on-the-cookie">Tapping on the cookie</a></li><li><a href="#getting-a-high-score">Getting a high score!</a></li><li><a href="#further-information">Further information</a></li><li><a href="#possible-extension">Possible extension</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/android-tutorials/docs/en/attributions.html">Attributions</a></section><a href="https://codebar.io/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar"/></a></footer></div></body></html>

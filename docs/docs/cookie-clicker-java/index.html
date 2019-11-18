@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Cookie Clicker (Java) · codebar android tutorials</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Introduction to Android Development"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Cookie Clicker (Java) · codebar android tutorials"/><meta property="og:type" content="website"/><meta property="og:url" content="https://codebar.github.io/android-tutorials/"/><meta property="og:description" content="# Introduction to Android Development"/><meta property="og:image" content="https://codebar.github.io/android-tutorials/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://codebar.github.io/android-tutorials/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/android-tutorials/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://codebar.github.io/android-tutorials/blog/atom.xml" title="codebar android tutorials Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://codebar.github.io/android-tutorials/blog/feed.xml" title="codebar android tutorials Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/android-tutorials/js/scrollSpy.js"></script><link rel="stylesheet" href="/android-tutorials/css/main.css"/><script src="/android-tutorials/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/android-tutorials/"><img class="logo" src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar android tutorials"/><h2 class="headerTitleWithLogo">codebar android tutorials</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/android-tutorials/docs/setup" target="_self">Getting Setup</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/android-tutorials/docs/cookie-clicker-java" target="_self">Kotlin Tutorials</a></li><li class=""><a href="/android-tutorials/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Java Tutorials (deprecated)</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Kotlin Tutorials</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/krumble">Krumble</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Java Tutorials (deprecated)</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/android-tutorials/docs/cookie-clicker-java">Cookie Clicker (Java)</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/layouts">Android Layouts</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/maps">Google Maps</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/activity-lifecycle">Activity Lifecycle</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/espresso">Espresso UI Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/more-resources">Other Resources</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Cookie Clicker (Java)</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="introduction-to-android-development"></a><a href="#introduction-to-android-development" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction to Android Development</h1>
+<h2><a class="anchor" aria-hidden="true" id="1-intro"></a><a href="#1-intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Intro</h2>
+<p>The aim of this worksheet is to create a <a href="http://orteil.dashnet.org/cookieclicker/">cookie clicker game</a>, with a cookie image that can be tapped to increase the score.</p>
+<p>To follow this tutorial, you will need to [get set up for Android development]({{ site.baseurl }}/setup). Please note, this involves downloading a large file, so our advice is to run through and install everything before arriving at the workshop. If you have problems, just get as far as you can and a coach can help you finish it off.</p>
+<p>Feel free to chose a different topic other than cookies, we really like the popular pokémon Goomy Clicker - <a href="http://joezeng.github.io/goomyclicker">http://joezeng.github.io/goomyclicker</a> what things do you like?</p>
+<p><img src="/android-tutorials/docs/assets/cookie-clicker-java/1_completed.png" alt="The completed application"></p>
+<h2><a class="anchor" aria-hidden="true" id="2-create-new-project"></a><a href="#2-create-new-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Create New Project</h2>
+<p><img src="/android-tutorials/docs/assets/cookie-clicker-java/2_new_project.png" alt="Creating a new project in Android Studio"></p>
+<blockquote>
+<p>Set the name of your app, this is what people will see when they install your app. The company name, and the resulting package name, is how Google keeps track of apps - it needs to be unique, so maybe use something with your name?</p>
+</blockquote>
+<p>Next, we set the SDK level to <code>14</code> - It'll give you a helpful guide for how many people this supports. Speak to your coach about what minimum sdk level they usually have to use.</p>
+<p>Finally, we want to create an <code>Empty Activity</code></p>
+<p><img src="/android-tutorials/docs/assets/cookie-clicker-java/3_new_activity.png" alt="Creating a new activity in Android Studio"></p>
+<blockquote>
+<p>We are going to keep the default of MainActivity.java and activity_main.xml :smile:</p>
+</blockquote>
+<p>click FINISH (this might take some time)</p>
+<p>Take some time to look at the different buttons with your coach - where are the different files located in the project? How do you run your app in an emulator or on a device?</p>
+<h2><a class="anchor" aria-hidden="true" id="3-layouts"></a><a href="#3-layouts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Layouts</h2>
+<p>Next, we want to open our layout file. On the left find the res folder and open layout. You should be able to double click on the activity_main.xml and open it.</p>
+<p>Layouts open in 'design' mode. This gives you some tools to make layouts with a graphical interface, but it's more common to write layouts by hand using the text editor. If you're familiar with Dreamweaver, it's a similar “What you see is what you get” (WYSIWYG) vs code situation.</p>
+<p>We're going to be dealing with the XML directly in this tutorial, so find the 'text' tab in the bottom left corner of the design window.</p>
+<p>Now you should see some code that looks familiar-ish! Android layouts using XML, which is very very similar to HTML. You should see already we have a <code>&lt;RelativeLayout&gt;</code> and a <code>&lt;TextView&gt;</code> tag, with some attributes already there. The thing that looks weird is that all the attributes currently are prefixed with the word <code>android</code>.</p>
+<p>At the moment Android Studio creates a constraint layout by default. These are bit more complicated to start with. So let's delete everything that's there and put this instead:</p>
+<pre><code class="hljs css language-xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
+</code></pre>
+<p>One of the most important features of our cookie clicker will be our cookie - we can create an <code>&lt;ImageView&gt;</code>, you will need to provide a <code>height</code> and a <code>width</code>. We also need to provide it an id so we can connect to it later.</p>
+<pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/imgCookie"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"256dp"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"256dp"</span>/&gt;</span>
+</code></pre>
+<blockquote>
+<p>id’s need to start with @+id/ - the plus symbol means it assigns the variable name to the current ImageView</p>
+</blockquote>
+<p>In Android we don't use pixels, but instead use <code>dp</code> which is a device point. 1 point might be 1 pixel on a really low resolution device, but might be 4 pixels, or even 8 pixels on a newer device. Take a look at this handy guide Android wrote for more information <a href="https://developer.android.com/guide/practices/screens_support.html">https://developer.android.com/guide/practices/screens_support.html</a> .</p>
+<p>Next, we want to save the following cookie image into our project. You can either google for a cookie image that's free to use, or use ours that we found earlier = <a href="http://imgur.com/a/9BXV4">http://imgur.com/a/9BXV4</a> . You need to save it inside your project folder using Windows Explorer or Mac OSX Finder and navigate to the following -&gt; app -&gt; src -&gt; main -&gt; res . You need to create a folder called <code>drawable-xhdpi</code> and place your cookie image in here!</p>
+<p>Because android has different density devices, we usually need to provide different resolution images for all those different devices. If we only provide it in one folder, Android will scale the image for other devices, but this might cause make the image look bad!</p>
+<p><img src="/android-tutorials/docs/assets/cookie-clicker-java/4_cookie_finder.png" alt="Where to place the cookie image file"></p>
+<p>If we want to then use that image in our Android app we can use an attribute <code>android:src=&quot;@drawable/cookie&quot;</code> - autocomplete will be your friend here!</p>
+<p>Because we have a RelativeLayout parent this means we can do some special things to position our cookie on our screen. We can provide an attribute like <code>android:layout_centerInParent=&quot;true&quot;</code>.</p>
+<p>Next, we want to look at having a TextView for to keep track of how many cookies we've clicked. Again you need to provide it a height, width, and id. But we can also provide it some special label things, such as <code>text</code>, <code>textColor</code>, or <code>textSize</code></p>
+<p>Another neat feature of using a RelativeLayout is how we can position things <strong>in relation</strong> to other things. So we can say that this TextView should <code>appearAbove</code> the image's id. In order for this to work, the TextView needs to know where the ImageView is, so the code for the TextView needs to go below the ImageView.</p>
+<p><img src="/android-tutorials/docs/assets/cookie-clicker-java/5_android_studio_layout.png" alt="The cookie clicker layout file in Android Studio"></p>
+<blockquote>
+<p>this is how our layout code finally looked :smile:</p>
+</blockquote>
+<p>Ask your coach what other special things RelativeLayout can do? Do you know any other alternative parent layouts?  Take a look at <a href="https://developer.android.com/guide/topics/ui/layout/relative.html">https://developer.android.com/guide/topics/ui/layout/relative.html</a> for more information.</p>
+<h2><a class="anchor" aria-hidden="true" id="4-clicking"></a><a href="#4-clicking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Clicking</h2>
+<p>Next, we want to make it so our cookie actually does something when it's been clicked on!</p>
+<p>We want to open our MainActivity.java file and take a look at what's there already. What do you think the <code>onCreate</code> method might do? Speak to your coach about what other methods get called in the activity lifecycle. For more information look at <a href="https://developer.android.com/training/basics/activity-lifecycle/index.html">https://developer.android.com/training/basics/activity-lifecycle/index.html</a> .</p>
+<p>Inside the <code>onCreate</code> method, below where it sets the layout to the xml file we just finished designing. We want to create a variable called imgCookie and findViewById to hook them up. This is similar to how we use jQuery in JavaScript to hook up with a HTML element</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    ImageView imgCookie = (ImageView)findViewById(R.id.imgCookie);
+}
+</code></pre>
+<p>After, we can set an onClickListener, which is again similar to the JavaScript element.click() method. The trick with Android Studio is to let it write as much code as possible, it has an extremely powerful auto completer! When you start typing onClickListener, you should see a suggestion with curly brackets on it. If you press tab at this point, it'll auto complete the entire code that you need!</p>
+<p><img src="/android-tutorials/docs/assets/cookie-clicker-java/6_autocomplete.png" alt="Autocomplete in Android Studio"></p>
+<p>Inside our method we're going to put a Toast. These are those little messages at the bottom of the phone that show for a short period of time. They're really good!</p>
+<p><img src="/android-tutorials/docs/assets/cookie-clicker-java/7_toast_code.png" alt="Our Android toast code"></p>
+<p>Run your app now, and see what happens when you tap on the cookie!</p>
+<h2><a class="anchor" aria-hidden="true" id="5-game-logic"></a><a href="#5-game-logic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Game Logic</h2>
+<p>Next, we want to make it so that when the image is clicked we increment a score. We need to create a private variable int called currentScore and set initially set it to 0.</p>
+<p>When we click on the image, we need to increment the score by 1. For now, we can use our toast to see how much our current score is:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> currentScore = <span class="hljs-number">0</span>;
+
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    ImageView imgCookie = (ImageView)findViewById(R.id.imgCookie);
+
+    imgCookie.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View view)</span> </span>{
+            currentScore ++;
+            Toast.makeText(MainActivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">"your score is "</span> + currentScore, Toast.LENGTH_SHORT).show();
+        }
+    });
+
+}
+</code></pre>
+<p>Toast messages are super useful for whilst we’re building the app, but people playing probably don’t want that. Let’s go about hooking it up to our TextView.</p>
+<p>Firstly, we need to make a variable called lblTotal and set it to our TextView just like how we set up our ImageView.</p>
+<p>Next, inside our imgCookie onClick, we can do <code>lblTotal.setText</code> to set our current counter. However we can’t do this directly; our currentScore is an <code>int</code> (number), and the lblTotal can only display a <code>String</code> (text). So we need to do <code>String.valueOf</code> to convert it!</p>
+<p><img src="images/8_final_code_alt.png" alt="Our final code"></p>
+<h2><a class="anchor" aria-hidden="true" id="6-more-advanced-game-logic"></a><a href="#6-more-advanced-game-logic" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. More Advanced Game Logic</h2>
+<p>Now is the time to get creative! What other things would make your game yours. Maybe you could get the cookie picture to change when you get to specific numbers using an if statement, e.g. after 10, 20, 30 … etc. Or how about getting more advanced and using a log scale e.g. after 10, 100, 100 cookies.</p>
+<h2><a class="anchor" aria-hidden="true" id="7-extra-credit"></a><a href="#7-extra-credit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Extra Credit</h2>
+<p>If you want to take your cookie game clicker onwards, maybe consider:</p>
+<ul>
+<li>Things people can spend their cookies on to get cookies for them without clicking, such as using timers</li>
+<li>Use something like firebase to have high scores, or allow people to sign in and save their cookies</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/android-tutorials/docs/krumble"><span class="arrow-prev">← </span><span>Krumble</span></a><a class="docs-next button" href="/android-tutorials/docs/layouts"><span>Android Layouts</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-intro">1. Intro</a></li><li><a href="#2-create-new-project">2. Create New Project</a></li><li><a href="#3-layouts">3. Layouts</a></li><li><a href="#4-clicking">4. Clicking</a></li><li><a href="#5-game-logic">5. Game Logic</a></li><li><a href="#6-more-advanced-game-logic">6. More Advanced Game Logic</a></li><li><a href="#7-extra-credit">7. Extra Credit</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/android-tutorials/docs/en/attributions.html">Attributions</a></section><a href="https://codebar.io/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar"/></a></footer></div></body></html>

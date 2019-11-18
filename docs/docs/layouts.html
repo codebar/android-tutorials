@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Android Layouts · codebar android tutorials</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Android Dev - Layouts"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Android Layouts · codebar android tutorials"/><meta property="og:type" content="website"/><meta property="og:url" content="https://codebar.github.io/android-tutorials/"/><meta property="og:description" content="# Android Dev - Layouts"/><meta property="og:image" content="https://codebar.github.io/android-tutorials/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://codebar.github.io/android-tutorials/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/android-tutorials/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://codebar.github.io/android-tutorials/blog/atom.xml" title="codebar android tutorials Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://codebar.github.io/android-tutorials/blog/feed.xml" title="codebar android tutorials Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/android-tutorials/js/scrollSpy.js"></script><link rel="stylesheet" href="/android-tutorials/css/main.css"/><script src="/android-tutorials/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/android-tutorials/"><img class="logo" src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar android tutorials"/><h2 class="headerTitleWithLogo">codebar android tutorials</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/android-tutorials/docs/setup" target="_self">Getting Setup</a></li><li class="siteNavGroupActive"><a href="/android-tutorials/docs/cookie-clicker-java" target="_self">Kotlin Tutorials</a></li><li class=""><a href="/android-tutorials/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Java Tutorials (deprecated)</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Kotlin Tutorials</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/krumble">Krumble</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Java Tutorials (deprecated)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/cookie-clicker-java">Cookie Clicker (Java)</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/android-tutorials/docs/layouts">Android Layouts</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/maps">Google Maps</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/activity-lifecycle">Activity Lifecycle</a></li><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/espresso">Espresso UI Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/android-tutorials/docs/more-resources">Other Resources</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Android Layouts</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="android-dev-layouts"></a><a href="#android-dev-layouts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android Dev - Layouts</h1>
+<p>(this is a mini tutorial that can be completed at any time)</p>
+<h2><a class="anchor" aria-hidden="true" id="1-intro"></a><a href="#1-intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Intro</h2>
+<p>The aim of this worksheet is to demonstrate how to position elements by building an “about” page. We will also look at how we can apply the same style to elements that are very similar.</p>
+<p><img src="https://i.imgur.com/uiBO8Ial.png]" alt=""></p>
+<blockquote>
+<p>here’s how my about page looked at the end</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="2-new-layout-resource"></a><a href="#2-new-layout-resource" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. New layout resource</h2>
+<p>First, we need to create a new layout file. To do this, right click on your layout folder (inside resources) in Android Studio. You want to select a <code>layout resource file</code> . You should get a dialog popup like so:</p>
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487608985363_Screen+Shot+2017-02-20+at+16.42.54.png" alt=""></p>
+<blockquote>
+<p>here you want to write the name of the file at the top, and then press ok! We don’t need to worry about the any of the available qualifiers!</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="4-building-the-layout"></a><a href="#4-building-the-layout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Building the layout</h2>
+<p>Next, we need to then start building the your profile card! Ideally, you need to put up between three and five pieces of information, such as your twitter account, linked in profile, public website!</p>
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487623536028_Screen+Shot+2017-02-20+at+20.45.15.png" alt=""></p>
+<p>Experiment with the following attributes to position elements exactly where you want them:</p>
+<ul>
+<li>align</li>
+<li>margin</li>
+<li>padding</li>
+</ul>
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487764459586_test.png" alt=""> Try to work through positioning an element once on your own, then ask your coach for some feedback on how they might’ve positioned it. Learn from that and then work on the next element!</p>
+<h2><a class="anchor" aria-hidden="true" id="5-styles"></a><a href="#5-styles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Styles</h2>
+<p>After filling in a couple of pieces of information, you’ve probably started copying and pasting whole sections of layout code. Wouldn’t it be nicer if there was a better way to do this?</p>
+<p>Fortunately, in Android we can use apply a style. A style will apply a bunch of attributes that you specify to any element you want. For example, our text is the same text size, and colour. We can specify those in a style!</p>
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487621977280_Screen+Shot+2017-02-20+at+20.14.27.png" alt=""></p>
+<blockquote>
+<p>the code before</p>
+</blockquote>
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487624799339_Screen+Shot+2017-02-20+at+21.06.25.png" alt=""></p>
+<blockquote>
+<p>my style 🎉</p>
+</blockquote>
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487621986762_Screen+Shot+2017-02-20+at+20.18.26.png" alt=""></p>
+<blockquote>
+<p>the code after!</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="7-finishing"></a><a href="#7-finishing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Finishing</h2>
+<p>Make sure you test out your design on different phones, and different orientations! How will you make it work on a really tiny device and a really big device?</p>
+<p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_F796CF6A0040ADCCBAB2B9B20BC5945521E219A338BC472B843F87820F2EE3E3_1487764549342_test.png" alt=""> Speak to your coach if you’d like advice on how we handle supporting many different device sizes. For more information take a look at <a href="https://developer.android.com/guide/practices/screens_support.html">https://developer.android.com/guide/practices/screens_support.html</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/android-tutorials/docs/cookie-clicker-java"><span class="arrow-prev">← </span><span>Cookie Clicker (Java)</span></a><a class="docs-next button" href="/android-tutorials/docs/maps"><span>Google Maps</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-intro">1. Intro</a></li><li><a href="#2-new-layout-resource">2. New layout resource</a></li><li><a href="#4-building-the-layout">4. Building the layout</a></li><li><a href="#5-styles">5. Styles</a></li><li><a href="#7-finishing">7. Finishing</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/android-tutorials/docs/en/attributions.html">Attributions</a></section><a href="https://codebar.io/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/android-tutorials/img/codebar-full-white-logo.png" alt="codebar"/></a></footer></div></body></html>

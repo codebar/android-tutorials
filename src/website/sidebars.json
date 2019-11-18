@@ -1,0 +1,9 @@
+{
+  "docs": {
+    "Kotlin Tutorials": ["krumble"],
+    "Java Tutorials (deprecated)" : ["cookie-clicker-java", "layouts", "maps",
+      "activity-lifecycle", "espresso" ],
+      "Other Resources": ["more-resources"]
+  }
+
+}
