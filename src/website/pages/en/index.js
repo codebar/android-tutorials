@@ -96,10 +96,10 @@ class Index extends React.Component {
             title: '[Getting Set Up](docs/setup)',
           },
           {
-            content: 'Learn how to build a cookie clicker app using java',
+            content: 'Learn how to build a cookie clicker app using kotlin',
             image: `${baseUrl}img/cookies.png`,
             imageAlign: 'top',
-            title: '[Cookie Clicker (Java)](docs/cookie-clicker-java)',
+            title: '[Cookie Clicker (Kotlin)](docs/cookie-clicker-kotlin)',
           },
           {
             content: 'Learn how to build a cookie themed tinder using Kotlin',

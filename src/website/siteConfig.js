@@ -39,7 +39,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'setup', label: 'Getting Setup'},
-    {doc: 'cookie-clicker-java', label: 'Kotlin Tutorials'},
+    {doc: 'cookie-clicker-kotlin', label: 'Kotlin Tutorials'},
     {blog: true, label: 'Blog'},
   ],
 
